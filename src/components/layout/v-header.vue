@@ -3,7 +3,7 @@
     <nav class="main-header__nav main-nav">
      <ul class="main-nav__list ul">
        <li class="main-nav__item">
-         <a href="" class="main-nav__item">Logo</a>
+         <a href="" class="main-nav__link">Logo</a>
         </li>
         <li class="main-nav__item">
           <a href="" class="main-nav__link">Лучшие потоковые передачи</a>
@@ -14,12 +14,12 @@
      </ul>
 
       <el-form class="main-nav__serch-form">
-        <el-form-item>
+        <el-form-item class="main-nav__serch-form-item">
           <el-input type="search" autocomplete="off"  prefix-icon="el-icon-search"></el-input>
         </el-form-item>
       </el-form>
       
-      <el-button class="main__nav-auth-btn" type="primary"  @click="open('userAuth')">Log in / Sign up</el-button>    
+      <el-button class="main-nav__auth-btn" type="primary"  @click="open('userAuth')">Log in / Sign up</el-button>    
     </nav>
 
 
@@ -63,22 +63,45 @@ export default {
 
   .main-nav {
     display: flex;
+    align-items: center;
     padding: 20px 30px;
+    box-shadow: 0 0 5px -1px rgba(0,0,0,.2);
 
     &__list {
       display: flex;
+      align-items: center
     }
 
     &__item {
 
-      &__link {
-       
-        text-decoration: none;
+    }
 
-        &:hover {
-          
-        }
+    &__link {
+      display: block;
+      margin-right:30px;
+
+      color: $--link-color;
+      text-decoration: none;
+
+      transition: $--all-transition;
+
+      &:hover {
+        color: $--link-hover-color;
       }
+    }
+
+    &__serch-form {
+      display: flex;
+      align-items: center;
+
+      &-item {
+        margin-bottom: 0;
+      }
+    }
+
+    &__auth-btn {
+      height: 40px;
+      margin-left: auto;
     }
 
     
