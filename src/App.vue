@@ -1,17 +1,16 @@
 <template>
   <div id="app">
-    <main-header></main-header>
-    <router-view></router-view>
+   <main-layout></main-layout>
   </div>
 </template>
 
 <script>
-import MainHeader from '@/components/layout/v-header';
+import MainLayout from '@/components/layout/v-main';
 
 export default {
   name: 'app',
   components: {
-    MainHeader
+    MainLayout
   }
 }
 </script>

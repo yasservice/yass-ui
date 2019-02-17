@@ -1,5 +1,5 @@
 <template>
-  <el-row class="home__categories categories" :gutter="gutter">
+  <el-row class="home__categories categories" :gutter="gutter" tag="section">
     <el-col class="caregories__col">
       <h2>categories</h2>
     </el-col>
@@ -38,6 +38,7 @@ export default {
 <style lang="scss" scoped>
 $height: 200px;
 .categories {
+  margin-bottom: 40px;
   &__col {
 
   }
