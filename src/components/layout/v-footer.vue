@@ -1,13 +1,13 @@
 <template>
   <el-row type="flex" justify="space-between" align="middle" class="main-footer">
     <el-col :xs="24" :sm="4">
-      sdf
+      Logo
     </el-col>
     <el-col :xs="24" :sm="8">
       sdf
     </el-col>
     <el-col :xs="24" :sm="4">
-      sdf
+      © all rights reserved
     </el-col>
   </el-row>
 </template>

@@ -3,8 +3,8 @@
     <el-col class="caregories__col">
       <h2>categories</h2>
     </el-col>
-    <el-col class="categories__col" :xs="24" :sm="8"  :lg="4">
-      <router-link :to="'home'" class="categories__link card-syle"></router-link>
+    <el-col class="categories__col" :xs="24" :sm="8"  :lg="4" :xxl="24">
+      <router-link :to="'about'" class="categories__link card-syle">sdfsf</router-link>
     </el-col>
      <el-col class="categories__col" :xs="24" :sm="8"  :lg="4">
       <router-link :to="'home'" class="categories__link card-syle"></router-link>
