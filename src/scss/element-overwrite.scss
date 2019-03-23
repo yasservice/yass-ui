@@ -1,0 +1,6 @@
+.el-col {
+  margin-bottom: $block-space;
+  .el-col {
+    margin-bottom: 0;
+  }
+}

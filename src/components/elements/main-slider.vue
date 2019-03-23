@@ -13,7 +13,7 @@ export default {
     slideChange(prevIndex, activeIndex) { 
       this.$el.childNodes[1].childNodes.forEach((element, index) => {
         if (index === prevIndex) {
-          console.log(prevIndex);
+    
         }
       });;
     }
