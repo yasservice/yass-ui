@@ -65,11 +65,12 @@ export default {
     display: flex;
     align-items: center;
     padding: 20px 30px;
-    box-shadow: 0 0 5px -1px rgba(0,0,0,.2);
+    background: $black;
 
     &__list {
       display: flex;
-      align-items: center
+      align-items: center;
+      flex-wrap: wrap;
     }
 
     &__item {
@@ -79,15 +80,29 @@ export default {
     &__link {
       display: block;
       margin-right:30px;
+      font-family: $custom-font;
 
-      color: $--link-color;
+      color: $yellow;
       text-decoration: none;
 
       transition: $--all-transition;
 
-      &:hover {
-        color: $--link-hover-color;
+      &::after {
+        content: '';
+        display: block;
+        height: 2px;
+        width: 0px;
+        margin-top: 10px;
+
+        background: $yellow;
+
+        transition: $--all-transition;
       }
+
+      &:hover  &::after {
+        width: 100%
+      }
+
     }
 
     &__serch-form {
