@@ -25,12 +25,14 @@ body {
 }
 
 h1,
-h3,
+h2,
 h3,
 h4,
 h5,
 h6 {
   font-family: $custom-font;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 
@@ -69,6 +71,7 @@ input {
 .section-title {
   font-size: 26px;
   line-height: 30px;
+  font-family: $custom-font;
   
   &--neon-blue, &--neon-purple {
     @include blink;
