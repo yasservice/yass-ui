@@ -19,11 +19,18 @@ $--color-transition-base: color .2s cubic-bezier(.645,.045,.355,1) !default;
 $--color-white: #fff !default;
 $--color-black: #000 !default;
 
+$_custom-color-black: #222;
+$_custom-color-blue: #1c2c54;
+$_custom-color-sky-blue: #22edfc;//#4bc3b5;
+$_custom-color-pink: #d175b7;
+$_custom-color-yellow: #fdee06;
+
+
 //#fdee06 -yelllow
 //#22edfc -skyblue
 //#8c8c8c - gray
 //https://www.color-hex.com/color-palette/14887
-$--color-primary: #00B8B0 !default;//#22264b
+$--color-primary: $_custom-color-sky-blue !default;//#22264b
 $--color-primary-light-1: mix($--color-white, $--color-primary, 10%) !default; /* 53a8ff */
 $--color-primary-light-2: mix($--color-white, $--color-primary, 20%) !default; /* 66b1ff */
 $--color-primary-light-3: mix($--color-white, $--color-primary, 30%) !default; /* 79bbff */
@@ -36,7 +43,7 @@ $--color-primary-light-9: mix($--color-white, $--color-primary, 90%) !default; /
 
 $--color-success: #67c23a !default;//#00B8B0
 $--color-warning: #e6a23c !default;
-$--color-danger: #f56c6c !default;
+$--color-danger: #d175b7 !default;
 $--color-info: #909399 !default;
 
 $--color-success-light: mix($--color-white, $--color-success, 80%) !default;
@@ -432,7 +439,7 @@ $--button-disabled-fill: $--color-white !default;
 $--button-disabled-border: $--border-color-lighter !default;
 
 $--button-primary-border: $--color-primary !default;
-$--button-primary-color: $--color-white !default;
+$--button-primary-color: $--color-black !default;
 $--button-primary-fill: $--color-primary !default;
 
 $--button-success-border: $--color-success !default;
@@ -462,7 +469,7 @@ $--cascader-height: 200px !default;
 /* Switch
 -------------------------- */
 $--switch-on-color: $--color-primary !default;
-$--switch-off-color: $--border-color-base !default;
+$--switch-off-color: $--border-color-base !default;//$--border-color-base
 $--switch-disabled-color: $--border-color-lighter !default;
 $--switch-disabled-text-color: $--color-text-placeholder !default;
 
@@ -474,7 +481,7 @@ $--switch-button-size: 16px !default;
 
 /* Dialog
 -------------------------- */
-$--dialog-background-color: $--color-primary-light-4 !default;
+$--dialog-background-color: $_custom-color-black !default;
 $--dialog-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !default;
 $--dialog-close-hover-color: $--color-primary !default;
 $--dialog-title-font-size: $--font-size-large !default;

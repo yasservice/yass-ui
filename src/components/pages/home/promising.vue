@@ -1,7 +1,7 @@
 <template>
    <el-row class="home__promising promising" :gutter="gutter" tag="section">
     <el-col class="promising__col">
-      <h2>Promising</h2>
+      <h2 class="section-title section-title--neon-purple">Promising</h2>
     </el-col>
     <el-col class="promising__col" :xs="24" :sm="8">
       <router-link :to="'home'" class="promising__link card-syle"></router-link>

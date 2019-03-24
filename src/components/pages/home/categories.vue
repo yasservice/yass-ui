@@ -1,7 +1,7 @@
 <template>
   <el-row class="home__categories categories" :gutter="gutter" tag="section">
     <el-col class="caregories__col">
-      <h2>categories</h2>
+      <h2 class="section-title section-title--neon-blue">categories</h2>
     </el-col>
     <el-col class="categories__col" :xs="24" :sm="8"  :lg="4" :xxl="24">
       <router-link :to="'about'" class="categories__link card-syle">sdfsf</router-link>

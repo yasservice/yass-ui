@@ -1,6 +1,32 @@
 .el-col {
   margin-bottom: $block-space;
+
   .el-col {
     margin-bottom: 0;
+  }
+}
+
+body {
+
+   /* modal
+  -------------------------- */
+  .el-dialog {
+    background: $black;
+  }
+
+   /* form
+  -------------------------- */
+  .el-form-item__label {
+    color: $sky-blue;
+  }
+
+  /* buttons
+  -------------------------- */
+  .el-button {
+    color: $black;
+
+    &--primary {
+      color: $black;
+    }
   }
 }

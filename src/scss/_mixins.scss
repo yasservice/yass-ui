@@ -10,7 +10,7 @@
 	$index: str-index($string, $search);
 
 	@if $index {
-		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+		@return str-slice($string, 1, $index - 1)+$replace+str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
 	}
 
 	@return $string;
@@ -23,15 +23,12 @@
 @mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
 	$src: null;
 
-	$extmods: (
-		eot: "?",
-		svg: "#" + str-replace($name, " ", "_")
-	);
+	$extmods: (eot: "?",
+		svg: "#"+ str-replace($name, " ", "_"));
 
-	$formats: (
-		otf: "opentype",
+	$formats: (otf: "opentype",
 		ttf: "truetype"
-	);
+		);
 
 	@each $ext in $exts {
 		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
@@ -44,5 +41,73 @@
 		font-style: $style;
 		font-weight: $weight;
 		src: $src;
+	}
+}
+
+/* aniemation blink
+------------------*/
+@mixin blink {
+	animation: blink2 .8s linear 2s infinite alternate;
+
+	@keyframes blink2 {
+		0% {
+			filter: brightness(1);
+		}
+
+		3% {
+			filter: brightness(0.8);
+		}
+
+		6% {
+			filter: brightness(1);
+		}
+
+		9% {
+			filter: brightness(1);
+		}
+
+		12% {
+			filter: brightness(0.9);
+		}
+
+		15% {
+			filter: brightness(1);
+		}
+
+		35% {
+			filter: brightness(1);
+		}
+
+		41% {
+			filter: brightness(0.95);
+		}
+
+		46% {
+			filter: brightness(1);
+		}
+
+		54% {
+			filter: brightness(1);
+		}
+
+		61% {
+			filter: brightness(0.85);
+		}
+
+		68% {
+			filter: brightness(0.95);
+		}
+
+		75% {
+			filter: brightness(0.85);
+		}
+
+		90% {
+			filter: brightness(1);
+		}
+
+		100% {
+			filter: brightness(1);
+		}
 	}
 }

@@ -1,0 +1,23 @@
+.btn {
+  color: $black;
+  background: $sky-blue;
+
+  font-size: 18px;
+  line-height: 20px;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 0px;
+    height: 2px;
+
+    background: $black;
+  }
+
+  &:hover,
+  &:focus {
+    &::after {
+      width: 100%;
+    }
+  }
+}

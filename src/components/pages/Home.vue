@@ -27,7 +27,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .home-content-body {
-
+  .home {
+    padding: 40px 0;
   }
 </style>

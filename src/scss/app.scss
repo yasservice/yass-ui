@@ -2,17 +2,52 @@
 @import './variables';
 @import './element-overwrite.scss';
 
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
 body {
   margin: 0;
   padding: 0;
 
   background: $black;
-  font-family:$text-font;
+  font-family: $text-font;
 }
+
+h1,
+h3,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $custom-font;
+}
+
 
 a {
   color: $yellow;
+  font-family: $custom-font;
 }
+
+button {
+  font-family: $custom-font;
+}
+
+label,
+input {
+  font-family: $custom-font;
+}
+
 
 .ul {
   list-style: none;
@@ -25,6 +60,31 @@ a {
   }
 }
 
+.layout {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-size: 26px;
+  line-height: 30px;
+  
+  &--neon-blue, &--neon-purple {
+    @include blink;
+  }
+
+  &--neon-blue {
+    color: $neon-sky-blue-color;
+    text-shadow: $neon-sky-blue-text-shadow;
+  }
+
+  &--neon-purple {
+    color: $neon-purple-color;
+    text-shadow: $neon-purple-text-shadow;
+  }
+}
+
 .card-syle {
   border-radius: $--border-radius-base;
   box-shadow: $--box-shadow-dark;
@@ -32,15 +92,9 @@ a {
   padding: $block-space;
 
   transition: $--all-transition;
-  
+
   &:hover,
   &:focus {
-    box-shadow: 9px 3px 22px -8px rgba(0,0,0,0.75);
+    box-shadow: 9px 3px 22px -8px rgba(0, 0, 0, 0.75);
   }
-}
-
-.layout {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 20px;
 }
