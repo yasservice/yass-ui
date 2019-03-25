@@ -1,9 +1,9 @@
 <template>
-  <div class="main-header">
+  <header class="main-header">
     <nav class="main-header__nav main-nav">
       <ul class="main-nav__list ul">
         <li class="main-nav__item">
-          <a href class="main-nav__link">Logo</a>
+          <a href class="main-nav__link main-logo" alt="enjoy streaming" title="enjoy streaming">stream</a>
         </li>
         <li class="main-nav__item">
           <a href class="main-nav__link">Лучшие потоковые передачи</a>
@@ -27,7 +27,7 @@
     </nav>
 
     <user-auth-popup :visible="isUserPopupVisible"></user-auth-popup>
-  </div>
+  </header>
 </template>
 <script>
 import UserAuthPopup from "../elements/user-login/user-auth-popup";

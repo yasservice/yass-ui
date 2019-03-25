@@ -1,0 +1,24 @@
+.section-title {
+  font-size: 26px;
+  line-height: 30px;
+  font-family: $custom-font;
+  
+  &--neon-blue, &--neon-purple, &--neon-yellow {
+    @include blink;
+  }
+
+  &--neon-blue {
+    color: $neon-sky-blue-color;
+    text-shadow: $neon-sky-blue-text-shadow;
+  }
+
+  &--neon-purple {
+    color: $neon-purple-color;
+    text-shadow: $neon-purple-text-shadow;
+  }
+
+  &--neon-yellow {
+    color: $neon-yellow-color;
+    text-shadow: $neon-yellow-text-shadow;
+  }
+}

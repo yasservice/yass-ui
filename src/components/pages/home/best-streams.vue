@@ -1,7 +1,7 @@
 <template>
    <el-row class="home__best-streams best-streams" :gutter="gutter" tag="section">
     <el-col class="best-streams__col">
-      <h2>Best streams</h2>
+      <h2 class="section-title section-title--neon-yellow">Best streams</h2>
     </el-col>
     <el-col class="best-streams__col" :xs="24" :sm="8">
       <router-link :to="'home'" class="best-streams__link card-syle"></router-link>

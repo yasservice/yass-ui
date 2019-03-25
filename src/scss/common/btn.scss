@@ -21,3 +21,41 @@
     }
   }
 }
+
+  /*TODO  neon effect dont work as expected, fix this!!!!
+  --------*/
+.neon-btn {
+  position: relative;
+
+  background: transparent;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+
+    border: 2px solid transparent;
+    opacity: 0;
+
+    transition: 0.3s;
+  }
+
+  &:hover,
+  &:focus {
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  &--blue {
+    color: $sky-blue;
+
+    &::after {
+      box-shadow: $neon-shadow-blue;
+    }
+  }
+}

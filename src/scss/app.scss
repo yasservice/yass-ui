@@ -68,36 +68,11 @@ input {
   padding: 0 20px;
 }
 
-.section-title {
-  font-size: 26px;
-  line-height: 30px;
-  font-family: $custom-font;
-  
-  &--neon-blue, &--neon-purple {
-    @include blink;
-  }
+@import './common/btn.scss';
+@import './common/cards.scss';
 
-  &--neon-blue {
-    color: $neon-sky-blue-color;
-    text-shadow: $neon-sky-blue-text-shadow;
-  }
+@import './common/section-title.scss';
 
-  &--neon-purple {
-    color: $neon-purple-color;
-    text-shadow: $neon-purple-text-shadow;
-  }
-}
+@import './common/logo.scss';
 
-.card-syle {
-  border-radius: $--border-radius-base;
-  box-shadow: $--box-shadow-dark;
-  background: $--color-info;
-  padding: $block-space;
 
-  transition: $--all-transition;
-
-  &:hover,
-  &:focus {
-    box-shadow: 9px 3px 22px -8px rgba(0, 0, 0, 0.75);
-  }
-}
