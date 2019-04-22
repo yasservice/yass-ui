@@ -1,24 +1,25 @@
 <template>
   <div class="main-layout">
     <main-header></main-header>
-      <router-view></router-view>
+      <transition>
+        <router-view></router-view>
+      </transition>
     <main-footer></main-footer>
   </div>
 </template>
 <script>
-import MainHeader from './v-header';
-import MainFooter from './v-footer';
+import MainHeader from "./v-header";
+import MainFooter from "./v-footer";
 
 export default {
-  name: 'MainLayout',
+  name: "MainLayout",
 
   components: {
     MainHeader,
-    MainFooter,
-  },
+    MainFooter
+  }
 };
 </script>
 
 <style lang="scss">
-  
 </style>

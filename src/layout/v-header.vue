@@ -3,7 +3,12 @@
     <nav class="main-header__nav main-nav">
       <ul class="main-nav__list ul">
         <li class="main-nav__item">
-          <a href class="main-nav__link main-logo" alt="enjoy streaming" title="enjoy streaming">stream</a>
+          <a
+            href
+            class="main-nav__link main-logo"
+            alt="enjoy streaming"
+            title="enjoy streaming"
+          >stream</a>
         </li>
         <li class="main-nav__item">
           <a href class="main-nav__link">Лучшие потоковые передачи</a>
@@ -30,7 +35,7 @@
   </header>
 </template>
 <script>
-import UserAuthPopup from "../elements/user-login/user-auth-popup";
+import UserAuthPopup from "@/components/user-login/user-auth-popup";
 export default {
   name: "MainHeader",
 
@@ -67,7 +72,9 @@ export default {
     background: $sky-blue;
     box-shadow: 0 2px 4px 3px $sky-blue;
 
-    @include blink;
+    @include adopt("sm-and-up") {
+      @include blink;
+    }
   }
 
   &__nav {

@@ -10,13 +10,13 @@
 </template>
 
 <script>
-import MainSlider from '@/components/elements/main-slider';
-import Categories from '@/components/pages/home/categories';
-import Promising from '@/components/pages/home/promising';
-import BestStreams from '@/components/pages/home/best-streams';
+import MainSlider from '@/components/main-slider';
+import Categories from './home/categories';
+import Promising from './home/promising';
+import BestStreams from './home/best-streams';
 
 export default {
-  name: 'home',
+  name: 'Home',
   components: {
     MainSlider,
     Categories,

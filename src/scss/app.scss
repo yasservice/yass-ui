@@ -33,12 +33,21 @@ h6 {
   font-family: $custom-font;
   font-weight: bold;
   text-transform: uppercase;
+  color: $white;
 }
 
 
 a {
   color: $yellow;
   font-family: $custom-font;
+}
+
+p {
+  color: $white;
+}
+
+div {
+  color: $white;
 }
 
 button {
