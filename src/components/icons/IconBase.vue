@@ -35,7 +35,7 @@ export default {
       default: 'currentColor'
     },
     viewBox: {
-      type: String, 
+      type: [Number, String], 
       default: '0 0 18 18'
     }
   }

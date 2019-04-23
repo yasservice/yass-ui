@@ -7,6 +7,9 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.17",
+    "@fortawesome/free-solid-svg-icons": "^5.8.1",
+    "@fortawesome/vue-fontawesome": "^0.1.6",
     "axios": "^0.18.0",
     "babel-loader": "^8.0.5",
     "element-ui": "^2.4.5",
@@ -23,6 +26,7 @@
     "sass-loader": "^7.1.0",
     "vue-cli-plugin-apollo": "^0.19.2",
     "vue-cli-plugin-element": "^1.0.1",
+    "vue-svg-loader": "^0.12.0",
     "vue-template-compiler": "^2.5.21"
   },
   "postcss": {

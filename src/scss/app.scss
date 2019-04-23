@@ -1,11 +1,17 @@
 @import './element-variables';
-@import './variables';
 @import './element-overwrite.scss';
 
 html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+
+  font-size: calc(10px + 1vw);
+  line-height: 1.5;
+
+  @include adopt('sm-and-down') {
+    font-size: calc(16px + 1vw);
+  }
 }
 
 *,
@@ -22,6 +28,8 @@ body {
 
   background: $black;
   font-family: $text-font;
+  font-size: inherit;
+  line-height: inherit;
 }
 
 h1,
@@ -72,9 +80,14 @@ input {
 }
 
 .layout {
-  max-width: 1400px;
+  max-width: 80%;
   margin: 0 auto;
   padding: 0 20px;
+
+  @include adopt('sm-and-down') {
+    max-width: 90%;
+    padding: 0 10px;
+  }
 }
 
 @import './common/btn.scss';
