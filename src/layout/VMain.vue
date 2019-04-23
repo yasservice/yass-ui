@@ -8,8 +8,8 @@
   </div>
 </template>
 <script>
-import MainHeader from "./v-header";
-import MainFooter from "./v-footer";
+import MainHeader from "./VHeader";
+import MainFooter from "./VFooter";
 
 export default {
   name: "MainLayout",

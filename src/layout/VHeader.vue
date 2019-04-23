@@ -35,7 +35,7 @@
   </header>
 </template>
 <script>
-import UserAuthPopup from "@/components/user-login/user-auth-popup";
+import UserAuthPopup from "@/components/user-login/UserAuthPopup";
 export default {
   name: "MainHeader",
 
