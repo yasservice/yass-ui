@@ -1,4 +1,5 @@
 import { USER_REQUEST, USER_ERROR, USER_SUCCESS } from './index';
+import { AUTH_LOGOUT } from '../auth/index'
 
 export default {
   [USER_REQUEST]: (state) => {
