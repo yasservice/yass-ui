@@ -4,8 +4,6 @@
   background: $--color-info;
   padding: $block-space;
 
-  transition: $--all-transition;
-
   &:hover,
   &:focus {
     box-shadow: 9px 3px 22px -8px rgba(0, 0, 0, 0.75);

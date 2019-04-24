@@ -13,16 +13,16 @@
       v-for="(item, index) in categoriesList"
       :key="'categories__col' + index"
     >
-      <router-link :to="item.link" class="categories__link card-syle">
+      <router-link :to="item.link" class="categories__link categories__link--hover card-syle">
         <font-awesome-icon
           :icon="item.icon"
           size="6x"
           aria-label="true"
-          class="categories__link-icon categories__link-icon--hover"
+          class="categories__link-icon categories__link--hover-icon"
         ></font-awesome-icon>
 
-        <h3 class="categories__link-title categories__link-title--hover">{{ item.name }}</h3>
-        <p class="categories__link-info categories__link-info--hover">
+        <h3 class="categories__link-title  categories__link--hover-title">{{ item.name }}</h3>
+        <p class="categories__link-info categories__link--hover-info">
           Смотрят
           <span>{{ item.viewers }}</span>
         </p>
@@ -117,6 +117,12 @@ $height: 200px;
 
     text-decoration: none;
 
+    transition: 0.2s all ease-in-out;
+
+    & * {
+      transition: 0.2s all ease-in-out;
+    }
+
     &-title {
       margin: 0;
       margin-top: auto;
@@ -135,15 +141,16 @@ $height: 200px;
       margin: 0 auto;
     }
 
-    &:hover,
-    &:focus {
-      &-title--hover {
+    &--hover {
+      &:hover,
+      &:focus {
+        color: $black;
+        background: $yellow;
       }
 
-      &-info--hover {
-      }
-
-      &-icon--hover {
+      &:hover &-title,
+      &:focus &-title {
+        color: $black;
       }
     }
   }

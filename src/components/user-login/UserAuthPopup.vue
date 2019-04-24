@@ -8,7 +8,12 @@
     center
   >
     <div slot="title">
-      <el-switch v-model="showSignupForm" active-text="Log in" inactive-text="Sign up"></el-switch>
+      <el-switch 
+        v-model="showSignupForm" 
+        active-text="Log in" 
+        inactive-text="Sign up"
+        @change="resetForm('authForm')">
+      </el-switch>
     </div>
 
     <el-form
@@ -67,14 +72,14 @@ export default {
   data() {
     const checkAge = (rule, value, callback) => {
       if (!value) {
-        return callback(new Error("Please input the age"));
+        return callback(new Error("Пожалуйста введите возраст"));
       }
       setTimeout(() => {
         if (!Number.isInteger(value)) {
-          callback(new Error("Please input digits"));
+          callback(new Error("Поля должно состоять только из цыфр"));
         } else {
-          if (value < 18) {
-            callback(new Error("Age must be greater than 18"));
+          if (value < 6) {
+            callback(new Error("Возраст должен быть больше 6"));
           } else {
             callback();
           }
@@ -84,7 +89,7 @@ export default {
 
     const validatePass = (rule, value, callback) => {
       if (value === "") {
-        callback(new Error("Please input the password"));
+        callback(new Error("Пожалуйста введите пароль"));
       } else {
         if (this.authForm.checkPass !== "") {
           this.$refs.authForm.validateField("checkPass");
@@ -95,9 +100,9 @@ export default {
 
     const validatePass2 = (rule, value, callback) => {
       if (value === "") {
-        callback(new Error("Please input the password again"));
+        callback(new Error("Пожалуйста введите пароль еще раз"));
       } else if (value !== this.authForm.pass) {
-        callback(new Error("Two inputs don't match!"));
+        callback(new Error("Пароли не совпадают"));
       } else {
         callback();
       }
@@ -119,12 +124,12 @@ export default {
         email: [
           {
             required: true,
-            message: "Please input email address",
+            message: "Пожалуйста введите email",
             trigger: "blur"
           },
           {
             type: "email",
-            message: "Please input correct email address",
+            message: "Не корректный email",
             trigger: ["blur", "change"]
           }
         ]

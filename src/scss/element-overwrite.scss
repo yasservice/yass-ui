@@ -24,9 +24,21 @@ body {
   -------------------------- */
   .el-button {
     color: $black;
+    font-size: calc(8px + 1vw);
+    line-height: 1.2;
 
     &--primary {
       color: $black;
+      font-size: calc(8px + 1vw);
+      line-height: 1.2;
+
+      @include adopt('sm-and-down') {
+        font-size: calc(16px + 1vw);
+      }
+    }
+
+    @include adopt('sm-and-down') {
+      font-size: calc(16px + 1vw);
     }
   }
 }
