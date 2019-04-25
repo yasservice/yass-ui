@@ -20,6 +20,38 @@ body {
     color: $sky-blue;
   }
 
+  .el-input__inner {
+    font-size: calc(6px + 1vw);
+    line-height: 1.2;
+
+    @include adopt('sm-and-down') {
+      font-size: calc(16px + 1vw);
+    }
+
+  }
+
+  .el-form-item__label {
+    font-size: calc(6px + 1vw);
+    line-height: 1.2;
+
+    @include adopt('sm-and-down') {
+      font-size: calc(16px + 1vw);
+    }
+  }
+
+  .el-form-item__error  {
+    font-size: calc(6px + 1vw);
+    line-height: 1.2;
+
+    @include adopt('sm-and-down') {
+      font-size: calc(16px + 1vw);
+    }
+  }
+
+  .el-form-item {
+    margin-bottom: 6%;
+  }
+
   /* buttons
   -------------------------- */
   .el-button {
@@ -36,6 +68,21 @@ body {
         font-size: calc(16px + 1vw);
       }
     }
+
+    @include adopt('sm-and-down') {
+      font-size: calc(16px + 1vw);
+    }
+  }
+
+  /* switch
+  ------------*/
+  .el-switch__label {
+    color: $white;
+  }
+
+  .el-switch__label * {
+    font-size: calc(6px + 1vw);
+    line-height: 1.2;
 
     @include adopt('sm-and-down') {
       font-size: calc(16px + 1vw);

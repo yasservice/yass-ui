@@ -3,12 +3,12 @@
     <nav class="main-header__nav main-nav">
       <ul class="main-nav__list ul">
         <li class="main-nav__item">
-          <a
-            href
+          <router-link
+            to="/"
             class="main-nav__link main-logo"
             alt="enjoy streaming"
             title="enjoy streaming"
-          >stream</a>
+          >stream</router-link>
         </li>
         <li class="main-nav__item">
           <a href class="main-nav__link">Лучшие потоковые передачи</a>
@@ -138,7 +138,7 @@ export default {
     }
 
     &__auth-btn {
-      height: 40px;
+      // height: 40px;
       margin-left: auto;
     }
   }
