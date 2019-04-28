@@ -10,8 +10,8 @@
     <div slot="title">
       <el-switch 
         v-model="showSignupForm" 
-        active-text="Log in" 
-        inactive-text="Sign up"
+        active-text="Sign up" 
+        inactive-text="Log in"
         @change="resetForm('authForm')">
       </el-switch>
     </div>
@@ -31,10 +31,10 @@
         <el-input type="password" v-model="authForm.checkPass" autocomplete="off"></el-input>
       </el-form-item>
       <el-form-item label="Age" prop="age">
-        <el-input v-model.number="authForm.age"></el-input>
+        <el-input v-model.number="authForm.age" type="number"></el-input>
       </el-form-item>
       <el-form-item prop="email" label="Email">
-        <el-input v-model="authForm.email"></el-input>
+        <el-input v-model="authForm.email" type="email"></el-input>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm('authForm')">Submit</el-button>
@@ -55,7 +55,7 @@
       </el-form-item>
 
       <el-form-item prop="email" label="Email">
-        <el-input v-model="authForm.email"></el-input>
+        <el-input v-model="authForm.email" type="email"></el-input>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm('authForm')">Submit</el-button>
@@ -66,6 +66,8 @@
 </template>
 
 <script>
+import { AUTH_REQUEST } from '@/store/modules/auth/index';
+
 export default {
   name: "UserAuthPopup",
 
@@ -115,6 +117,7 @@ export default {
         age: "",
         email: ""
       },
+
       authRuls: {
         pass: [{ required: true, validator: validatePass, trigger: "blur" }],
         checkPass: [
@@ -135,7 +138,9 @@ export default {
         ]
       },
 
-      showSignupForm: true
+      showSignupForm: true,
+
+      isFormCorrect: false,
     };
   },
 
@@ -159,10 +164,12 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          alert("submit!");
-          this.close("userAuth");
+          if (this.showSignupForm) { this.signup(); return; }
+            
+          this.login();
+
         } else {
-          console.log("error submit!!");
+          console.error("error submit!!");
           return false;
         }
       });
@@ -170,7 +177,41 @@ export default {
 
     resetForm(formName) {
       this.$refs[formName].resetFields();
+    },
+
+    /**
+     * signup user
+     */
+    signup() {
+      const { pass: password, email, age } = this.authForm;
+
+      this.close('userAuth');
+      this.resetForm('authForm');
+      
+      console.log(password, email, age);
+    },
+    
+
+    /**
+     * login user
+     */
+    login() {
+      const { pass: password, email } = this.authForm;
+
+      this.close('userAuth');
+      this.resetForm('authForm');
+      
+      // this.$store.dispatch(AUTH_REQUEST, {email, password})
+      //   .then((res) => {
+      //     console.log(res);
+      //   })
+      //   .cath((e) => {
+      //     console.error(e);
+      //   })
+      
+      console.log(password, email);
     }
+    
   }
 };
 </script>

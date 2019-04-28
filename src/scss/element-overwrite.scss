@@ -22,7 +22,7 @@ body {
 
   .el-input__inner {
     font-size: calc(6px + 1vw);
-    line-height: 1.2;
+    line-height: 1.2;  
 
     @include adopt('sm-and-down') {
       font-size: calc(16px + 1vw);
@@ -86,6 +86,23 @@ body {
 
     @include adopt('sm-and-down') {
       font-size: calc(16px + 1vw);
+    }
+  }
+
+  /* date
+  -------------*/
+  .el-picker-panel  {
+    background: $black;
+  }
+
+  /* tabs
+  -----------*/
+  .el-tabs__item {
+    font-size: calc(10px + 1vw);
+    line-height: 1.2;
+
+    @include adopt('sm-and-down') {
+      font-size: calc(20px + 1vw);
     }
   }
 }

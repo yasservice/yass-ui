@@ -4,7 +4,7 @@
       <ul class="main-nav__list ul">
         <li class="main-nav__item">
           <router-link
-            to="/"
+            :to="{name: 'Home'}"
             class="main-nav__link main-logo"
             alt="enjoy streaming"
             title="enjoy streaming"

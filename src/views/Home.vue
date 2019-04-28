@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <main-slider></main-slider>
-    <div class="home-content-body layout">
+    <div class="home-content-body">
       <categories></categories>
       <promising></promising>
       <best-streams></best-streams>
