@@ -3,7 +3,7 @@
     <el-row type="flex" justify="space-between" align="middle" tag="footer" class="main-footer">
       <el-col :xs="24" :sm="4">Logo</el-col>
       <el-col :xs="24" :sm="8">sdf</el-col>
-      <el-col :xs="24" :sm="4">© all rights reserved</el-col>
+      <el-col :xs="24" :sm="4">ï¿½ all rights reserved</el-col>
     </el-row>
   </div>
 </template>

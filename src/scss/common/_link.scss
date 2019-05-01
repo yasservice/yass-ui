@@ -1,0 +1,18 @@
+.link {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15px;
+  color: $info;
+  text-decoration: none;
+
+  &--hover {
+    &:hover,
+    &:focus {
+      background: $info;
+      color: $white;
+    }
+  }
+
+  transition: all 0.3s linear;
+}

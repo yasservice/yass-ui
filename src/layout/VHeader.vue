@@ -1,17 +1,19 @@
 <template>
   <header class="main-header">
-    <desktop></desktop>
+    <!-- <desktop></desktop> -->
+
+    <top-nav></top-nav>
   </header>
 </template>
 
 <script>
-  import Desktop from "./header-menu/Desktop";
+  import TopNav from "./main-nav/TopNav";
 
   export default {
     name: "MainHeader",
 
     components: {
-      Desktop
+      TopNav
     },
 
     computed: {},

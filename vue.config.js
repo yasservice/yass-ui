@@ -10,6 +10,7 @@ module.exports = {
       }
     },
   },
+
   chainWebpack: (config) => {
     const svgRule = config.module.rule('svg');
 
@@ -19,7 +20,17 @@ module.exports = {
       .use('vue-svg-loader')
       .loader('vue-svg-loader');
   },
-   configureWebpack: {
-    devtool: 'source-map'
+
+  configureWebpack: {
+   devtool: 'source-map'
+ },
+
+  pluginOptions: {
+    i18n: {
+      locale: 'en',
+      fallbackLocale: 'en',
+      localeDir: 'locales',
+      enableInSFC: false
+    }
   }
 };

@@ -6,6 +6,7 @@ import './plugins/element'
 import { createProvider } from './plugins/vue-apollo'
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import i18n from './i18n'
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
@@ -15,5 +16,6 @@ new Vue({
   router,
   store,
   apolloProvider: createProvider(),
+  i18n,
   render: h => h(App)
 }).$mount('#app')

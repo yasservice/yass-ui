@@ -11,98 +11,98 @@ body {
    /* modal
   -------------------------- */
   .el-dialog {
-    background: $black;
+    // background: $black;
   }
 
    /* form
   -------------------------- */
-  .el-form-item__label {
-    color: $sky-blue;
-  }
+  // .el-form-item__label {
+  //   color: $sky-blue;
+  // }
 
-  .el-input__inner {
-    font-size: calc(6px + 1vw);
-    line-height: 1.2;  
+  // .el-input__inner {
+  //   font-size: calc(6px + 1vw);
+  //   line-height: 1.2;  
 
-    @include adopt('sm-and-down') {
-      font-size: calc(16px + 1vw);
-    }
+  //   @include adopt('sm-and-down') {
+  //     font-size: calc(16px + 1vw);
+  //   }
 
-  }
+  // }
 
-  .el-form-item__label {
-    font-size: calc(6px + 1vw);
-    line-height: 1.2;
+  // .el-form-item__label {
+  //   font-size: calc(6px + 1vw);
+  //   line-height: 1.2;
 
-    @include adopt('sm-and-down') {
-      font-size: calc(16px + 1vw);
-    }
-  }
+  //   @include adopt('sm-and-down') {
+  //     font-size: calc(16px + 1vw);
+  //   }
+  // }
 
-  .el-form-item__error  {
-    font-size: calc(6px + 1vw);
-    line-height: 1.2;
+  // .el-form-item__error  {
+  //   font-size: calc(6px + 1vw);
+  //   line-height: 1.2;
 
-    @include adopt('sm-and-down') {
-      font-size: calc(16px + 1vw);
-    }
-  }
+  //   @include adopt('sm-and-down') {
+  //     font-size: calc(16px + 1vw);
+  //   }
+  // }
 
-  .el-form-item {
-    margin-bottom: 6%;
-  }
+  // .el-form-item {
+  //   margin-bottom: 6%;
+  // }
 
-  /* buttons
-  -------------------------- */
-  .el-button {
-    color: $black;
-    font-size: calc(8px + 1vw);
-    line-height: 1.2;
+  // /* buttons
+  // -------------------------- */
+  // .el-button {
+  //   color: $black;
+  //   font-size: calc(8px + 1vw);
+  //   line-height: 1.2;
 
-    &--primary {
-      color: $black;
-      font-size: calc(8px + 1vw);
-      line-height: 1.2;
+  //   &--primary {
+  //     color: $black;
+  //     font-size: calc(8px + 1vw);
+  //     line-height: 1.2;
 
-      @include adopt('sm-and-down') {
-        font-size: calc(16px + 1vw);
-      }
-    }
+  //     @include adopt('sm-and-down') {
+  //       font-size: calc(16px + 1vw);
+  //     }
+  //   }
 
-    @include adopt('sm-and-down') {
-      font-size: calc(16px + 1vw);
-    }
-  }
+  //   @include adopt('sm-and-down') {
+  //     font-size: calc(16px + 1vw);
+  //   }
+  // }
 
-  /* switch
-  ------------*/
-  .el-switch__label {
-    color: $white;
-  }
+  // /* switch
+  // ------------*/
+  // .el-switch__label {
+  //   color: $white;
+  // }
 
-  .el-switch__label * {
-    font-size: calc(6px + 1vw);
-    line-height: 1.2;
+  // .el-switch__label * {
+  //   font-size: calc(6px + 1vw);
+  //   line-height: 1.2;
 
-    @include adopt('sm-and-down') {
-      font-size: calc(16px + 1vw);
-    }
-  }
+  //   @include adopt('sm-and-down') {
+  //     font-size: calc(16px + 1vw);
+  //   }
+  // }
 
-  /* date
-  -------------*/
-  .el-picker-panel  {
-    background: $black;
-  }
+  // /* date
+  // -------------*/
+  // .el-picker-panel  {
+  //   background: $black;
+  // }
 
-  /* tabs
-  -----------*/
-  .el-tabs__item {
-    font-size: calc(10px + 1vw);
-    line-height: 1.2;
+  // /* tabs
+  // -----------*/
+  // .el-tabs__item {
+  //   font-size: calc(10px + 1vw);
+  //   line-height: 1.2;
 
-    @include adopt('sm-and-down') {
-      font-size: calc(20px + 1vw);
-    }
-  }
+  //   @include adopt('sm-and-down') {
+  //     font-size: calc(20px + 1vw);
+  //   }
+  // }
 }
