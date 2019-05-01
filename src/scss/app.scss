@@ -65,6 +65,10 @@ div {
 
 button {
   font-family: $text-font;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 label,

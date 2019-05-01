@@ -1,28 +1,25 @@
 <template>
   <nav class="main-nav__top">
-    <el-input class="main-nav__search" placeholder="Поиск" suffix-icon="el-icon-search" v-model="searchValue"></el-input>
+    <search-input class="main-nav__search">
+    </search-input>
 
-    <div class="main-nav__alert alert">
-        <font-awesome-icon :icon="faBell" aria-label="true" class="alert__icon icon-default"></font-awesome-icon>
-
-        <span class="alert-count">
-          2
-        </span>
-    </div>
+    <user-badge class="main-nav__alert"></user-badge>  
 
     <user-popover class="main-nav__userpopover"></user-popover>
   </nav>
 </template>
 <script>
-import { faBell } from "@fortawesome/free-solid-svg-icons";
 import UserPopover from "@/components/user/UserPopover";
+import UserBadge from "@/components/user/UserBadge";
+import SearchInput from "@/components/SearchInput";
 
 export default {
   name: "TopNav",
 
   components: {
-    faBell,
-    UserPopover
+    UserPopover,
+    UserBadge,
+    SearchInput
   },
 
   data() {
@@ -50,14 +47,6 @@ export default {
 
     &__search {
       width: 340px;
-
-      input {
-        background: rgba(255, 255, 255, 0.03);
-      }
-
-      span {
-        color: $primary;
-      }
     }
 
     &__alert {

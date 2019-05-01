@@ -9,7 +9,7 @@
   &--hover {
     &:hover,
     &:focus {
-      background: $info;
+      background: $link--hover-bg;
       color: $white;
     }
   }
