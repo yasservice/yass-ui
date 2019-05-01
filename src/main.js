@@ -6,7 +6,7 @@ import './plugins/element'
 import { createProvider } from './plugins/vue-apollo'
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import i18n from './i18n'
+import i18n from './plugins/i18n'
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 

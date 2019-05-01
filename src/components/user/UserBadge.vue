@@ -26,6 +26,11 @@ export default {
   .user-badge {
     position: relative;
 
+    &:hover,
+    &:focus {
+      color: $white;
+    }
+
     &__icon {
       font-size: 25px;
     }

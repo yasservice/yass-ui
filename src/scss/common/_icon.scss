@@ -9,3 +9,7 @@
 .icon-rotate-180 {
   transform: rotate(180deg);
 }
+
+[class|='el-icon'] {
+  transition: 0.2s ease-in-out all;
+}

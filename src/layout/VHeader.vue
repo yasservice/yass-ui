@@ -1,19 +1,20 @@
 <template>
   <header class="main-header">
-    <!-- <desktop></desktop> -->
-
     <top-nav></top-nav>
+    <left-nav></left-nav>
   </header>
 </template>
 
 <script>
   import TopNav from "./main-nav/TopNav";
+  import LeftNav from "./main-nav/LeftNav.vue"
 
   export default {
     name: "MainHeader",
 
     components: {
-      TopNav
+      TopNav,
+      LeftNav
     },
 
     computed: {},
