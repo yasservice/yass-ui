@@ -1,9 +1,6 @@
 $font-path: '~@/assets/fonts/';
 
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,700&subset=cyrillic');
-
-@include font-face('Blender Pro', $font-path + 'BlenderPro-Bold', bold, normal, ttf woff woff2);
-@include font-face('Blender Pro', $font-path + 'BlenderPro-Book', normal, normal, ttf woff woff2);
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700&subset=cyrillic');
 
 $text-font: 'Roboto', sans-serif;
 $custom-font:  'Blender Pro', sans-serif;  

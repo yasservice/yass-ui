@@ -25,7 +25,7 @@
         <div class="user-login">ePadamans</div>
 
         <span class="user-popover-icon">
-          <i class="el-icon-arrow-down"
+          <i class="el-icon-arrow-down icon-default"
             :class="{'icon-rotate-180': isUserClicked}"
           ></i>
         </span>
@@ -44,9 +44,6 @@ export default {
         {
           link: "/",
           text: "Channel"
-        },
-        {
-          text: "Language"
         },
         {
           text: "Settings",
@@ -87,6 +84,14 @@ export default {
 
       background: $bg-darkest;
       border-radius: $--border-radius-base;
+      border: 1px dotted transparent;
+
+      transition: 0.1s all linear;
+
+      &:hover,
+      &:focus {
+        border-color: $bg--darker;
+      }
     }
 
     &-avatar {

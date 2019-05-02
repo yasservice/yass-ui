@@ -33,9 +33,13 @@ export default {
 <style lang="scss" scoped>
   .main-nav {
     &__top {
-      flex-basis: 100%;
+      position: fixed;
+      left: 80px;
+      top: 0px;
+
+      width: calc(100% - 80px);
       padding: 10px 25px;
-      height: 50px;
+      height: 55px;
       display: flex;
       align-items: center;
 

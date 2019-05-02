@@ -28,6 +28,7 @@ html {
 body {
   margin: 0;
   padding: 0;
+  height: 100vh; //TODO временно
 
   // background: $black;
   font-family: $text-font;
@@ -107,12 +108,13 @@ input {
 }
 
 @import './common/btn.scss';
-@import './common/cards.scss';
+// @import './common/cards.scss';
 
 @import './common/section-title.scss';
 
 @import './common/logo.scss';
 @import './common/icon.scss';
 @import './common/link.scss';
+@import './common/animation.scss';
 
 

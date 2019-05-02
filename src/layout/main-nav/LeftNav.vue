@@ -1,28 +1,51 @@
 <template>
   <nav class="main-nav__left">
     <div class="main-nav__left-body">
-      <button class="main-nav__left-menu-toggle menu-toggle btn-reset">
+      <button class="main-nav__left-menu-toggle menu-toggle btn-reset" @click="toggleMenu = !toggleMenu">
          <font-awesome-icon :icon="faBars" aria-label="true"></font-awesome-icon>
       </button>
 
-      <router-link :to="{ path: '/' }" class="main-nav__left-link-to-friends link-to-friends">
+      <router-link :to="{ path: '/' }" class="main-nav__left-link-to-friends link-to-friends" title="link to friens">
         <font-awesome-icon :icon="faUsers" aria-label="true"></font-awesome-icon>
 
         <span class="link-to-friends__count">{{ onlineFriends }}</span>
       </router-link>
 
       <ul class="main-nav__left-stream-list ul">
-        <li v-for="(item, index) in streams" :key="'user-stream' + index">
-          <user-icon :stream="item"></user-icon>
+        <li v-for="(item, index) in streams.slice(0, 5)" :key="'user-stream' + index">
+          <user-icon :stream="item" class="main-nav__left-stream-link"></user-icon>
         </li>
       </ul>
+
+      <router-link :to="{ path: '/' }" class="main-nav__left-link-to-hot-streams link-to-hot-streams" title="hot streams">
+        <font-awesome-icon :icon="faFire" aria-label="true"></font-awesome-icon>
+      </router-link>
+
+<!--       <ul class="main-nav__left-stream-list ul">
+        <li v-for="(item, index) in streams.slice(5)" :key="'user-stream' + index">
+          <user-icon :stream="item" class="main-nav__left-stream-link"></user-icon>
+        </li>
+      </ul> -->
+
+      <router-link :to="{ path: '/' }" class="main-nav__left-user-settings user-settings-link" title="user settings">
+        <font-awesome-icon :icon="faCog" aria-label="true"></font-awesome-icon>
+      </router-link>
     </div>
+
+
+    <transition name="menu-animation">
+      <main-menu class="main-nav__left-menu" v-show="toggleMenu"></main-menu>
+    </transition>
+
+
+
+      <!-- <div  class="main-nav__left-menu-mask" v-show="toggleMenu" @click="toggleMenu = false"></div> -->
   </nav>
 </template>
 <script>
-import { faUsers, faBars } from "@fortawesome/free-solid-svg-icons";
+import { faUsers, faBars, faFire, faCog } from "@fortawesome/free-solid-svg-icons";
 import UserIcon from "@/components/user/UserIcon";
-import Menu from "./Menu";
+import MainMenu from "./MainMenu";
 
 export default {
   name: "LeftNav",
@@ -30,7 +53,9 @@ export default {
   components: {
     faUsers,
     faBars,
-    Menu,
+    faFire,
+    faCog,
+    MainMenu,
     UserIcon
   },
 
@@ -39,8 +64,12 @@ export default {
       data: "",
       faUsers,
       faBars,
+      faFire,
+      faCog,
 
       onlineFriends: 4,
+
+      toggleMenu: false,
 
       streams: [
         {
@@ -66,6 +95,18 @@ export default {
           link: "/",
           img: "",
           title: "sfass stream online"
+        },
+        {
+          status: "offline",
+          link: "/",
+          img: "",
+          title: "sfass stream online"
+        },
+        {
+          status: "offline",
+          link: "/",
+          img: "",
+          title: "sfass stream online"
         }
       ]
     };
@@ -75,12 +116,38 @@ export default {
 <style lang="scss" scoped>
 .main-nav {
   &__left {
+    z-index: 3010;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    border-right: 1px solid $border-color;
+
+    &-menu {
+      z-index: 3009;
+      position: fixed;
+      left: 80px;
+      top: 0;
+      height: 100vh;
+
+      &-mask {
+        z-index: 3008;
+        position: fixed;
+        left: 80px;
+        top: 0;
+
+        width: 100%;
+        height: 100%;
+
+        background-color: $bg-darkest;
+      }
+    }
 
     &-body{
       width: 80px;
+      height: 100%;
 
-      background: $bg--most-darkest;
-      border-right: 1px solid $border-color;
+      background: $bg--dark;
     }
 
     &-menu-toggle {
@@ -98,13 +165,38 @@ export default {
     }
 
     &-stream-list {
-      padding: 15px;
+    }
+
+    &-stream-link {
+      margin: 15px
+    }
+
+    &-link-to-hot-streams {
+      width: 100%;
+      display: block;
+      text-align: center;
+      padding: 7px 0;
+
+      border-top: 1px solid $border-color;
+      border-bottom: 1px solid $border-color;
+     
+    }
+
+    &-user-settings {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+
+      width: 100%;
+      display: block;
+      text-align: center;
     }
   }
 }
 
 .menu-toggle {
   font-size: 20px;
+  color: $icon;
 
   transition: color linear 0.1s;
 
@@ -117,6 +209,7 @@ export default {
   color: $icon;
 
   transition: color linear 0.1s;
+  text-decoration: none;
 
   &:hover,
   &:focus {
@@ -125,16 +218,42 @@ export default {
 
   &__count{
     margin-left: 2px;
+    padding: 2px;
+    width: 15px;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    padding: 2px;
 
     border-radius: $--border-radius-base;
     background: #030A14;
 
-    font-size: 10px;
-    line-height: 13px;
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
+
+.link-to-hot-streams {
+  text-align: center;
+  color: $icon;
+
+  transition: 0.1s color linear;
+
+  &:hover,
+  &:focus {
+    color: $white;
+  }
+}
+
+.user-settings-link {
+  font-size: 20px;
+  text-align: center;
+  color: $icon;
+
+  transition: 0.1s color linear;
+
+  &:hover,
+  &:focus {
+    color: $white;
   }
 }
 </style>

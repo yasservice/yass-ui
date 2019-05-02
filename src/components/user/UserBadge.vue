@@ -25,6 +25,7 @@ export default {
 <style lang="scss" scoped>
   .user-badge {
     position: relative;
+    color: $icon;
 
     &:hover,
     &:focus {

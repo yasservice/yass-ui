@@ -1,0 +1,13 @@
+.menu-animation-enter-active, .menu-animation-leave-active {
+  -webkit-transform: none;
+  transform: none;
+  transition: transform 300ms linear;
+}
+
+.menu-animation-enter, .menu-animation-leave-to {
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+  transition: transform 300ms linear;
+  will-change: transform;
+}
+

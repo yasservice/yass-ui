@@ -19,7 +19,7 @@ export default {
   .el-input__inner {
     height: 30px;
     background: $bg-brighter;
-    border: none;
+    border: 1px dotted transparent;
     font-weight: 500;
     font-size: 14px;
     line-height: 16px;
@@ -27,6 +27,10 @@ export default {
 
     &::placeholder {
       color: $info--light;
+    }
+
+    &:focus {
+      border-color: $bg--darker;
     }
   }
 
