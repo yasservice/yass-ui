@@ -109,4 +109,8 @@ body {
   .el-popover {
     background: $bg-darkest;
   }
+
+  .el-popper[x-placement^="bottom"] .popper__arrow::after {
+    border-bottom-color: $bg-darkest;
+  }
 }

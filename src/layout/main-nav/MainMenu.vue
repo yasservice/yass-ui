@@ -8,14 +8,18 @@
         </button>    
       </li>
       <li class="menu__item" v-for="(item, index) in menu" :key="'menu-item' + index">
-        <router-link 
+        <router-link
+          v-if="!item.isExternalLink" 
           class="menu__link link"
           :to="{ name: item.link }">
             {{ item.text }}
           </router-link>
+
+          <a v-else :href="item.link" class="link menu__link-external">
+            {{ item.text }}
+          </a>
       </li>
     </ul>
-   
   </nav>
 </template>
 <script>
@@ -60,6 +64,11 @@ export default {
           link: '/',
           text: 'Help',
         },
+        {
+          link: '/',
+          text: 'Discord',
+          isExternalLink: true,
+        }
       ]
     };
   }
@@ -75,6 +84,8 @@ export default {
   }
 
   .menu {
+    position: relative;
+
     width: 200px;
     background: $bg--dark;
 
@@ -128,6 +139,18 @@ export default {
         border-left-color: $primary;
         color: $white;
         background: $bg-darkest;
+      }
+
+      &-external {
+        position: absolute;
+        bottom: 15px;
+        left: 20px;
+
+        &:hover,
+        &:focus {
+          color: $white;
+        }
+
       }
     }
   }

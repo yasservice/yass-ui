@@ -19,7 +19,7 @@ export default {
   components: {
     UserPopover,
     UserBadge,
-    SearchInput
+    SearchInput,
   },
 
   data() {

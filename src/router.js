@@ -39,13 +39,23 @@ const router = new Router({
       path: '/',
       name: 'Home',
       component: () => import( /* webpackChunkName: "home" */ './views/Home.vue'),
-      children: [{
+      children: [
+      {
         path: 'about',
         name: 'About',
         // route level code-splitting
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
         component: () => import( /* webpackChunkName: "about" */ './views/About.vue')
+      },
+      {
+        path: 'band',
+        name: 'Band',
+        component: () => import( /* webpackChunkName: "about" */ './views/Band.vue'),
+        meta: {
+          requiresAuth: true,
+          method: 'POST'
+        }
       }, ]
     },
 

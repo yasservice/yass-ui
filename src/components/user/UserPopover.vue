@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-popover placement="bottom" width="auto" trigger="click" popper-class="user-popover">
+    <el-popover placement="bottom" :width="155" trigger="click" popper-class="user-popover">
       <div class="user-popover__body">
         <ul class="user-popover__list ul">
           <li
@@ -14,7 +14,9 @@
               class="user-popover__link link link--hover"
             >{{ item.text }}</router-link>
 
-            <button v-else class="user-popover__link link link--hover btn-reset">{{ item.text }}</button>
+            <!-- <button v-else class="user-popover__link link link--hover btn-reset">{{ item.text }}</button> -->
+
+            <change-language v-else></change-language>
           </li>
         </ul>
       </div>
@@ -35,8 +37,14 @@
 </template>
 
 <script>
+import ChangeLanguage from "../ChangeLanguage";
+
 export default {
   name: "UserPopover",
+
+  components: {
+    ChangeLanguage,
+  },
 
   data() {
     return {
@@ -44,6 +52,9 @@ export default {
         {
           link: "/",
           text: "Channel"
+        },
+        {
+          text: "language",
         },
         {
           text: "Settings",
