@@ -1,18 +1,42 @@
 .link {
-  font-style: normal;
-  font-weight: 500;
-  font-size: 13px;
-  line-height: 15px;
-  color: $info;
-  text-decoration: none;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 15px;
+    color: $info;
+    text-decoration: none;
 
-  &--hover {
+    &--hover {
+        &:hover,
+        &:focus {
+            background: $link--hover-bg;
+            color: $white;
+        }
+    }
+
+    transition: all 0.1s linear;
+}
+
+.link-primary {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 16px;
+    color: $primary;
+    text-decoration: none;
+
     &:hover,
     &:focus {
-      background: $link--hover-bg;
-      color: $white;
+      .link-primary__icon {
+        transform: translateX(5px);
+      }
     }
-  }
 
-  transition: all 0.1s linear;
+    &__icon {
+      display: inline-block;
+      margin-left: 5px;
+
+      transform: translateX(0px);
+      transition: transform 0.1s linear;
+    }
 }

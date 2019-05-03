@@ -1,28 +1,28 @@
 <template>
   <div>
     <main-header></main-header> 
-   <!--  <main class="main-layout layout">
-        <transition name="fade">
+    <main class="main-layout">
+        <transition name="fade"  mode="out-in">
           <router-view></router-view>
         </transition>
-    </main> -->
-    <!-- <main-footer></main-footer> -->
+    </main>
   </div>
 </template>
 
 <script>
 import MainHeader from "./VHeader";
-import MainFooter from "./VFooter";
 
 export default {
   name: "MainLayout",
 
   components: {
     MainHeader,
-    MainFooter
   }
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+.main-layout {
+  padding: 75px 0 0 100px;
+}
 </style>

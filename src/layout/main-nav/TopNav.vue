@@ -1,5 +1,6 @@
 <template>
-  <nav class="main-nav__top">
+  <nav class="main-nav__top"
+      :class="{ 'main-nav__top--scrolled': isPageScrolled }">
     <search-input class="main-nav__search">
     </search-input>
 
@@ -26,6 +27,7 @@ export default {
     return {
       searchValue: "",
       alertCount: 2,
+      isPageScrolled: false,
     };
   }
 };
@@ -33,6 +35,7 @@ export default {
 <style lang="scss" scoped>
   .main-nav {
     &__top {
+      z-index: 100;
       position: fixed;
       left: 80px;
       top: 0px;

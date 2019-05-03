@@ -113,4 +113,13 @@ body {
   .el-popper[x-placement^="bottom"] .popper__arrow::after {
     border-bottom-color: $bg-darkest;
   }
+
+  .el-breadcrumb__inner.is-link {
+    color: $white;
+
+    &:hover,
+    &:focus {
+      color: $primary--light;
+    }
+  }
 }

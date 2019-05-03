@@ -1,22 +1,27 @@
 <template>
   <button class="user-badge btn-reset">
         <span class="user-badge__icon">
-          <i class="el-icon-bell"></i>
+          <font-awesome-icon :icon="faBell" aria-label="true"></font-awesome-icon>
         </span>
 
         <span class="user-badge__count">
-          2
         </span>
     </button>
 </template>
 
 <script>
+import { faBell } from "@fortawesome/free-solid-svg-icons";
 export default {
   name: "UserPopover",
 
+  components: {
+    faBell,
+  },
+
   data() {
     return {
-      data: ""
+      data: "",
+      faBell
     };
   }
 };
@@ -55,5 +60,7 @@ export default {
       line-height: 9px;
       color: $white;
     }
+
+    transition: all 0.1s linear;
   }
 </style>

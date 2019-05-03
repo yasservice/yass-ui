@@ -1,61 +1,34 @@
 .btn {
-  color: $black;
-  background: $sky-blue;
+}
 
-  font-size: 18px;
-  line-height: 20px;
+.btn-reset {
+  margin: 0;
 
-  &::after {
-    content: '';
-    display: block;
-    width: 0px;
-    height: 2px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 
-    background: $black;
-  }
-
-  &:hover,
-  &:focus {
-    &::after {
-      width: 100%;
-    }
+  &:hover {
+    cursor: pointer;
   }
 }
 
-  /*TODO  neon effect dont work as expected, fix this!!!!
-  --------*/
-.neon-btn {
-  position: relative;
+.btn-primary {
+  font-weight: bold;
+  font-size: 10px;
+  line-height: 12px;
+  color: $white;
+  text-transform: uppercase;
+  border-radius: $--border-radius-base;
 
-  background: transparent;
-  
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: transparent;
+  background: linear-gradient(158.58deg, #0097F2 -15.81%, #00ACFF 87.01%);
+  box-shadow: 0px 0px 5px #00A0F8;
 
-    border: 2px solid transparent;
-    opacity: 0;
 
-    transition: 0.3s;
-  }
+  transition: 0.1s opacity linear;
 
   &:hover,
   &:focus {
-    &::after {
-      opacity: 1;
-    }
-  }
-
-  &--blue {
-    color: $sky-blue;
-
-    &::after {
-      box-shadow: $neon-shadow-blue;
-    }
+    opacity: 0.8;
   }
 }
