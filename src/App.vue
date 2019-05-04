@@ -13,6 +13,27 @@ export default {
   name: 'app',
   components: {
     MainLayout
+  },
+
+  methods: {
+    handleScroll (event) {
+      const scrolled = window.pageYOffset || document.documentElement.scrollTop;
+      const isScrolled = scrolled > 0;
+
+      this.$store.dispatch('pageScrolled', isScrolled)
+        .then(() => {
+          //console.log('success');
+        })
+        .catch((e) => {
+          console.error(e);
+        })
+    },
+  },
+  created () {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  destroyed () {
+    window.removeEventListener('scroll', this.handleScroll);
   }
 }
 </script>

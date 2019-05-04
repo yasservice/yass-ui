@@ -5,5 +5,5 @@ export default {
 
   blockSpace: 20, //space-between cols
 
-  isPageScrooled: false, 
+  isPageScrolled: false, 
 };

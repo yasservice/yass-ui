@@ -27,8 +27,13 @@ export default {
     return {
       searchValue: "",
       alertCount: 2,
-      isPageScrolled: false,
     };
+  },
+
+  computed: {
+    isPageScrolled() {
+      return this.$store.state.isPageScrolled;
+    }
   }
 };
 </script>
@@ -48,6 +53,12 @@ export default {
 
       border-bottom: 1px solid $border-color;
       background: transparent;
+
+      transition: background-color 0.1s linear;
+
+      &--scrolled {
+        background-color: $bg--most-darkest;
+      }
     }
 
     &__search {
