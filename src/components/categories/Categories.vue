@@ -4,28 +4,33 @@
       <h2 class="stream-categories__title">CURRENT STREAMING CATEGORIES</h2>
 
       <router-link :to="{path: '/'}" class="link-primary">
-        <span>
-          see all
-        </span>
+        <span>see all</span>
 
-         <span class="link-primary__icon">
+        <span class="link-primary__icon">
           <i class="el-icon-arrow-right"></i>
         </span>
       </router-link>
     </div>
-    
-    <el-row class="stream-categories__row" :gutter="gutter">
+
+    <!-- <el-row class="stream-categories__row" :gutter="gutter">
       <el-col class="stream-categories__col"
               v-for="(item, index) in categories"
               :key="'category item' + index" 
+              :xs="8"
+              :sm="8"
               :md="6"
               :lg="4"
               :xl="3">
         <category-item :item="item">
         </category-item>
       </el-col>
-    </el-row>
-  
+    </el-row>-->
+
+    <div class="stream-categories__row">
+      <div class="stream-categories__col" v-for="(item, index) in categories" :key="'category item' + index">
+        <category-item :item="item"></category-item>
+      </div>
+    </div>
   </section>
 </template>
 <script>
@@ -44,52 +49,59 @@ export default {
         {
           title: "Dota 2",
           img: "img/categories/1.jpg",
-          view: "200"
+          view: "200",
+          link: "/"
         },
         {
           title: "Dota 2",
           img: "img/categories/1.jpg",
-          view: "200"
+          view: "200",
+          link: "/"
         },
         {
           title: "Dota 2",
           img: "img/categories/1.jpg",
-          view: "200"
+          view: "200",
+          link: "/"
         },
         {
           title: "Dota 2",
           img: "img/categories/1.jpg",
-          view: "200"
+          view: "200",
+          link: "/"
         },
         {
           title: "Dota 2",
           img: "img/categories/1.jpg",
-          view: "200"
+          view: "200",
+          link: "/"
         },
         {
           title: "Dota 2",
           img: "img/categories/1.jpg",
-          view: "200"
+          view: "200",
+          link: "/"
         },
         {
           title: "Dota 2",
           img: "img/categories/1.jpg",
-          view: "200"
+          view: "200",
+          link: "/"
         },
         {
           title: "Dota 2",
           img: "img/categories/1.jpg",
-          view: "200"
-        },
-     
+          view: "200",
+          link: "/"
+        }
       ]
     };
   },
 
   computed: {
-      gutter() {
-          return this.$store.getters.getBlockSpace;
-      },
+    gutter() {
+      return this.$store.getters.getBlockSpace;
+    }
   }
 };
 </script>
@@ -97,11 +109,13 @@ export default {
 <style lang="scss" scoped>
 .stream-categories {
   margin-left: -20px;
-
-  background: $bg--most-darkest;
   padding: $block-space;
+  // height: 390px;
+  overflow: hidden;
 
   border: 1px solid $border-color;
+
+  background: $bg--most-darkest;
 
   &__title {
     margin-right: auto;
@@ -114,6 +128,20 @@ export default {
       display: flex;
       align-items: center;
     }
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
+
+  &__col {
+    flex: 1 0 auto;
+    max-width: 50%;
+    width: 12rem;
+    padding: 0 1rem;
   }
 }
 </style>
