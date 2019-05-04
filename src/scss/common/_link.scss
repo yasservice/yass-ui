@@ -38,4 +38,8 @@
       transform: translateX(0px);
       transition: transform 0.1s linear;
     }
+
+    &--light {
+      color: $primary--light;
+    }
 }

@@ -17,17 +17,22 @@
     </div>
 
     <categories></categories>
+
+    <!-- <streams></streams> -->
+    <stream-tabs></stream-tabs>
   </div>
 </template>
 
 <script>
 import Categories from '@/components/categories/Categories';
+import StreamTabs from '@/components/streams/StreamTabs';
 
 export default {
   name: 'Band',
 
   components: {
     Categories,
+    StreamTabs
   }
 }
 </script>

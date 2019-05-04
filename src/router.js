@@ -54,11 +54,7 @@ const router = new Router({
       {
         path: 'band',
         name: 'Band',
-        component: () => import( /* webpackChunkName: "about" */ './views/Band.vue'),
-        meta: {
-          requiresAuth: true,
-          method: 'POST'
-        }
+        component: () => import( /* webpackChunkName: "about" */ './views/Band.vue')
       },]
   },
 

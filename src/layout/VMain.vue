@@ -23,6 +23,6 @@ export default {
 
 <style lang="scss" scoped>
 .main-layout {
-  padding: 75px 0 0 100px;
+  padding: 75px 20px  20px 100px;
 }
 </style>

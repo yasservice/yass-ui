@@ -108,7 +108,7 @@ export default {
 
 <style lang="scss" scoped>
 .stream-categories {
-  margin-left: -20px;
+  margin: 0 -20px;
   padding: $block-space;
   // height: 390px;
   overflow: hidden;
