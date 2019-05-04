@@ -17,8 +17,7 @@
         <stream-clips></stream-clips>
       </el-tab-pane>
     </el-tabs>
-
-    <stream-filter></stream-filter>
+    <!-- <stream-filter></stream-filter> -->
   </div>
 </template>
 

@@ -4,7 +4,7 @@
 
     <el-row class="stream__row" :gutter="gutter">
       <el-col class="stream__col"
-              v-for="(item, index) in streams"
+              v-for="(item, index) in items"
               :key="'category item' + index" 
               :xs="24"
               :sm="12"

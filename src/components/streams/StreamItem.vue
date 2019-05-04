@@ -31,14 +31,14 @@
       <span class="stream-item__type-icon">
         <font-awesome-icon :icon="faPlayCircle" aria-label="true"></font-awesome-icon>
       </span>
-      {{ item.video.length }}
+      {{ item.video }}
     </p>
 
     <p class="stream-item__type stream-item__type--clip" v-else>
       <span class="stream-item__type-icon">
         <font-awesome-icon :icon="faVideo" aria-label="true"></font-awesome-icon>
       </span>
-      {{ item.clip.length }}
+      {{ item.clip }}
     </p>
   </router-link>
 </template>
@@ -184,8 +184,6 @@ export default {
 
     &-icon {
       margin-right: 5px;
-
-      color: $icon;
     }
 
     &--views {

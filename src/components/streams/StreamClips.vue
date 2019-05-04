@@ -23,11 +23,9 @@ export default {
           alt: "",
           channel: "DicklessJohn",
           category: "Minecraft",
-          clip: {
-            lenght: "0:55"
-          }
+          clip: "0:55"
         },
-         {
+        {
           link: "/",
           img: "img/categories/1.jpg",
           videoImg: "img/streams/1.jpg",
@@ -36,23 +34,8 @@ export default {
           alt: "",
           channel: "DicklessJohn",
           category: "Minecraft",
-          clip: {
-            lenght: "0:55"
-          }
-        },
-         {
-          link: "/",
-          img: "img/categories/1.jpg",
-          videoImg: "img/streams/1.jpg",
-          views: "200",
-          title: "BEST MINECRAFT ADVENTURE",
-          alt: "",
-          channel: "DicklessJohn",
-          category: "Minecraft",
-          clip: {
-            lenght: "0:55"
-          }
-        },
+          clip: "0:55"
+        }
       ]
     };
   }

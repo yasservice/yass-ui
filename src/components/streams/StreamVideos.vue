@@ -23,11 +23,9 @@ export default {
           alt: "",
           channel: "DicklessJohn",
           category: "Minecraft",
-          video: {
-            lenght: "0:55"
-          }
+          video: "4:22:30",
         },
-         {
+        {
           link: "/",
           img: "img/categories/1.jpg",
           videoImg: "img/streams/1.jpg",
@@ -36,11 +34,9 @@ export default {
           alt: "",
           channel: "DicklessJohn",
           category: "Minecraft",
-          video: {
-            lenght: "0:55"
-          }
+          video: "4:22:30",
         },
-         {
+        {
           link: "/",
           img: "img/categories/1.jpg",
           videoImg: "img/streams/1.jpg",
@@ -49,9 +45,7 @@ export default {
           alt: "",
           channel: "DicklessJohn",
           category: "Minecraft",
-          video: {
-            lenght: "0:55"
-          }
+          video: "4:22:30",
         },
       ]
     };
