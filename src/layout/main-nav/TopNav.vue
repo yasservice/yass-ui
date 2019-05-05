@@ -8,13 +8,16 @@
 
     <user-badge class="main-nav__alert"></user-badge>  
 
-    <user-popover class="main-nav__userpopover"></user-popover>
+    <!-- <user-popover class="main-nav__userpopover"></user-popover> -->
+
+    <auth-user></auth-user>
   </nav>
 </template>
 <script>
 import UserPopover from "@/components/user/UserPopover";
 import UserBadge from "@/components/user/UserBadge";
 import SearchInput from "@/components/SearchInput";
+import AuthUser from './AuthUser';
 
 import TopMenu from './TopMenu'
 
@@ -25,7 +28,8 @@ export default {
     UserPopover,
     UserBadge,
     SearchInput,
-    TopMenu
+    TopMenu,
+    AuthUser
   },
 
   data() {

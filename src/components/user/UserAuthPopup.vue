@@ -6,14 +6,15 @@
     @close="close('userAuth')"
     width="40%"
     center
+    :append-to-body="true"
   >
     <div slot="title">
-      <el-switch 
-        v-model="showSignupForm" 
-        active-text="Sign up" 
+      <el-switch
+        v-model="showSignupForm"
+        active-text="Sign up"
         inactive-text="Log in"
-        @change="resetForm('authForm')">
-      </el-switch>
+        @change="resetForm('authForm')"
+      ></el-switch>
     </div>
 
     <el-form
@@ -24,18 +25,21 @@
       ref="authForm"
       class="auth-form regestrations-form"
     >
+      <el-form-item prop="email" label="Email">
+        <el-input v-model="authForm.email" type="email"></el-input>
+      </el-form-item>
+
+      <el-form-item label="Age" prop="age">
+        <el-input v-model.number="authForm.age" type="number"></el-input>
+      </el-form-item>
+
       <el-form-item label="Password" prop="pass">
         <el-input type="password" v-model="authForm.pass" autocomplete="off"></el-input>
       </el-form-item>
       <el-form-item label="Confirm" prop="checkPass">
         <el-input type="password" v-model="authForm.checkPass" autocomplete="off"></el-input>
       </el-form-item>
-      <el-form-item label="Age" prop="age">
-        <el-input v-model.number="authForm.age" type="number"></el-input>
-      </el-form-item>
-      <el-form-item prop="email" label="Email">
-        <el-input v-model="authForm.email" type="email"></el-input>
-      </el-form-item>
+
       <el-form-item>
         <el-button type="primary" @click="submitForm('authForm')">Submit</el-button>
         <el-button @click="resetForm('authForm')">Reset</el-button>
@@ -50,13 +54,14 @@
       ref="authForm"
       class="auth-form authorization-form"
     >
+      <el-form-item prop="email" label="Email">
+        <el-input v-model="authForm.email" type="email"></el-input>
+      </el-form-item>
+
       <el-form-item label="Password" prop="pass">
         <el-input type="password" v-model="authForm.pass" autocomplete="off"></el-input>
       </el-form-item>
 
-      <el-form-item prop="email" label="Email">
-        <el-input v-model="authForm.email" type="email"></el-input>
-      </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm('authForm')">Submit</el-button>
         <el-button @click="resetForm('authForm')">Reset</el-button>
@@ -66,7 +71,7 @@
 </template>
 
 <script>
-import { AUTH_REQUEST } from '@/store/modules/auth/index';
+import { AUTH_REQUEST } from "@/store/modules/auth/index";
 
 export default {
   name: "UserAuthPopup",
@@ -140,7 +145,7 @@ export default {
 
       showSignupForm: true,
 
-      isFormCorrect: false,
+      isFormCorrect: false
     };
   },
 
@@ -164,10 +169,12 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          if (this.showSignupForm) { this.signup(); return; }
-            
-          this.login();
+          if (this.showSignupForm) {
+            this.signup();
+            return;
+          }
 
+          this.login();
         } else {
           console.error("error submit!!");
           return false;
@@ -185,12 +192,13 @@ export default {
     signup() {
       const { pass: password, email, age } = this.authForm;
 
-      this.close('userAuth');
-      this.resetForm('authForm');
-      
+      console.log("signup called");
+
+      this.close("userAuth");
+      this.resetForm("authForm");
+
       console.log(password, email, age);
     },
-    
 
     /**
      * login user
@@ -198,9 +206,11 @@ export default {
     login() {
       const { pass: password, email } = this.authForm;
 
-      this.close('userAuth');
-      this.resetForm('authForm');
-      
+      console.log("signup called");
+
+      this.close("userAuth");
+      this.resetForm("authForm");
+
       // this.$store.dispatch(AUTH_REQUEST, {email, password})
       //   .then((res) => {
       //     console.log(res);
@@ -208,20 +218,14 @@ export default {
       //   .cath((e) => {
       //     console.error(e);
       //   })
-      
+
       console.log(password, email);
     }
-    
   }
 };
 </script>
 
 <style lang="scss" scoped>
-
 .auth-dialog {
-
-  
-
 }
-
 </style>

@@ -116,7 +116,7 @@ export default {
 <style lang="scss" scoped>
 .main-nav {
   &__left {
-    z-index: 3010;
+    z-index: 50;
     position: fixed;
     left: 0;
     top: 0;

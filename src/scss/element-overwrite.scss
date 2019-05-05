@@ -1,3 +1,5 @@
+@import './variables';
+
 .el-col {
   margin-bottom: $block-space;
 
@@ -10,9 +12,12 @@ body {
 
    /* modal
   -------------------------- */
-  // .el-dialog {
-  //   // background: $black;
-  // }
+  .el-dialog {
+    // background: $black;
+
+    // border-radius: 5px;
+    // background: $bg--most-darkes;
+  }
 
    /* form
   -------------------------- */

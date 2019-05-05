@@ -30,6 +30,7 @@ html {
 body {
   margin: 0;
   padding: 0;
+  padding-right: 0 !important; //element ui add padding to body
   min-height: 100%;
 
   font-family: $text-font;
