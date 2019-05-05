@@ -1,11 +1,19 @@
 <template>
   <nav class="main-nav__left">
-    <div class="main-nav__left-body">
-      <button class="main-nav__left-menu-toggle menu-toggle btn-reset" @click="toggleMenu = !toggleMenu">
-         <font-awesome-icon :icon="faBars" aria-label="true"></font-awesome-icon>
+    <div class="main-nav__left-body" :class="{'main-nav__left-body--fixed': toggleMenu}">
+      <button
+        class="main-nav__left-menu-toggle menu-toggle btn-reset"
+        @click="toggleMenu = !toggleMenu"
+      >
+        <font-awesome-icon :icon="faBars" aria-label="true" v-show="!toggleMenu"></font-awesome-icon>
+        <font-awesome-icon :icon="faWindowClose" aria-label="true" v-show="toggleMenu"></font-awesome-icon>
       </button>
 
-      <router-link :to="{ path: '/' }" class="main-nav__left-link-to-friends link-to-friends" title="link to friens">
+      <router-link
+        :to="{ path: '/' }"
+        class="main-nav__left-link-to-friends link-to-friends"
+        title="link to friens"
+      >
         <font-awesome-icon :icon="faUsers" aria-label="true"></font-awesome-icon>
 
         <span class="link-to-friends__count">{{ onlineFriends }}</span>
@@ -13,38 +21,49 @@
 
       <ul class="main-nav__left-stream-list ul">
         <li v-for="(item, index) in streams.slice(0, 5)" :key="'user-stream' + index">
-          <user-icon :stream="item" class="main-nav__left-stream-link"></user-icon>
+          <user-stream-info :sreamInfo="item" class="main-nav__left-stream-link"></user-stream-info>
         </li>
       </ul>
 
-      <router-link :to="{ path: '/' }" class="main-nav__left-link-to-hot-streams link-to-hot-streams" title="hot streams">
+      <router-link
+        :to="{ path: '/' }"
+        class="main-nav__left-link-to-hot-streams link-to-hot-streams"
+        title="hot streams"
+      >
         <font-awesome-icon :icon="faFire" aria-label="true"></font-awesome-icon>
       </router-link>
 
-<!--       <ul class="main-nav__left-stream-list ul">
+      <!--       <ul class="main-nav__left-stream-list ul">
         <li v-for="(item, index) in streams.slice(5)" :key="'user-stream' + index">
           <user-icon :stream="item" class="main-nav__left-stream-link"></user-icon>
         </li>
-      </ul> -->
+      </ul>-->
 
-      <router-link :to="{ path: '/' }" class="main-nav__left-user-settings user-settings-link" title="user settings">
+      <router-link
+        :to="{ path: '/' }"
+        class="main-nav__left-user-settings user-settings-link"
+        title="user settings"
+      >
         <font-awesome-icon :icon="faCog" aria-label="true"></font-awesome-icon>
       </router-link>
     </div>
 
-
-    <transition name="menu-animation">
+    <!-- <transition name="menu-animation">
       <main-menu class="main-nav__left-menu" v-show="toggleMenu"></main-menu>
-    </transition>
+    </transition>-->
 
-
-
-      <!-- <div  class="main-nav__left-menu-mask" v-show="toggleMenu" @click="toggleMenu = false"></div> -->
+    <!-- <div  class="main-nav__left-menu-mask" v-show="toggleMenu" @click="toggleMenu = false"></div> -->
   </nav>
 </template>
 <script>
-import { faUsers, faBars, faFire, faCog } from "@fortawesome/free-solid-svg-icons";
-import UserIcon from "@/components/user/UserIcon";
+import {
+  faUsers,
+  faBars,
+  faFire,
+  faCog,
+  faWindowClose
+} from "@fortawesome/free-solid-svg-icons";
+import UserStreamInfo from "@/components/user/UserStreamInfo";
 import MainMenu from "./MainMenu";
 
 export default {
@@ -56,7 +75,8 @@ export default {
     faFire,
     faCog,
     MainMenu,
-    UserIcon
+    UserStreamInfo,
+    faWindowClose
   },
 
   data() {
@@ -66,6 +86,7 @@ export default {
       faBars,
       faFire,
       faCog,
+      faWindowClose,
 
       onlineFriends: 4,
 
@@ -76,37 +97,55 @@ export default {
           status: "streaming",
           link: "/",
           img: "",
-          title: "sfass stream online"
+          title: "sfass stream online",
+          streamName: "dfafdfas",
+          channelName: "sdfsadf",
+          views: 200
         },
         {
           status: "streaming",
           link: "/",
           img: "",
-          title: "sfass stream online"
+          title: "sfass stream online",
+          streamName: "dfafdfas",
+          channelName: "sdfsadf",
+          views: 200
         },
         {
           status: "online",
           link: "/",
           img: "",
-          title: "sfass stream online"
+          title: "sfass stream online",
+          streamName: "dfafdfas",
+          channelName: "sdfsadf",
+          views: 200
         },
         {
           status: "offline",
           link: "/",
           img: "",
-          title: "sfass stream online"
+          title: "sfass stream online",
+          streamName: "dfafdfas",
+          channelName: "sdfsadf",
+          views: 200
         },
         {
           status: "offline",
           link: "/",
           img: "",
-          title: "sfass stream online"
+          title: "sfass stream online",
+          streamName: "dfafdfas",
+          channelName: "sdfsadf",
+          views: 200
         },
         {
           status: "offline",
           link: "/",
           img: "",
-          title: "sfass stream online"
+          title: "sfass stream online",
+          streamName: "dfafdfas",
+          channelName: "sdfsadf",
+          views: 200
         }
       ]
     };
@@ -116,7 +155,7 @@ export default {
 <style lang="scss" scoped>
 .main-nav {
   &__left {
-    z-index: 50;
+    z-index: 3010;
     position: fixed;
     left: 0;
     top: 0;
@@ -143,11 +182,22 @@ export default {
       }
     }
 
-    &-body{
+    &-body {
       width: 80px;
       height: 100%;
+      overflow: hidden;
 
       background: $bg--dark;
+
+      &--fixed {
+        width: 330px;
+        background: $bg-darkest;
+      }
+
+      &:hover {
+        width: 330px;
+        background: $bg-darkest;
+      }
     }
 
     &-menu-toggle {
@@ -168,7 +218,7 @@ export default {
     }
 
     &-stream-link {
-      margin: 15px
+      margin: 15px;
     }
 
     &-link-to-hot-streams {
@@ -179,7 +229,6 @@ export default {
 
       border-top: 1px solid $border-color;
       border-bottom: 1px solid $border-color;
-     
     }
 
     &-user-settings {
@@ -216,7 +265,7 @@ export default {
     color: $white;
   }
 
-  &__count{
+  &__count {
     margin-left: 2px;
     padding: 2px;
     width: 15px;
@@ -225,7 +274,7 @@ export default {
     align-items: center;
 
     border-radius: $--border-radius-base;
-    background: #030A14;
+    background: #030a14;
 
     font-size: 12px;
     line-height: 15px;
