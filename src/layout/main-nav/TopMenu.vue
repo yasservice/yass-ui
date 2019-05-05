@@ -1,7 +1,7 @@
 <template>
   <nav class="top-menu">
     <ul class="top-menu__list ul">
-      <li class="top-menu__item" v-for="(item, index) in getUrl" :key="'top-menu' + index">
+      <li class="top-menu__item" v-for="(item, index) in menuItems" :key="'top-menu' + index">
         <router-link
           class="top-menu__link"
           :to="{ path: item.link }"
@@ -78,23 +78,44 @@ export default {
 
   mounted() {},
 
+  watch: {
+    // '$route': {
+    //   deep: true,
+    //   immediate: true,
+    //   handler: function(refreshPage) {
+    //     console.log('deep');
+    //   }
+    // },
+
+    $route(to, from) {
+      this.onUrlChange();
+    }
+  },
+
+  mounted() {
+    this.onUrlChange();
+  },
+
   computed: {
-    getUrl() {
+  },
+
+  methods: {
+    onUrlChange() {
       const menu = this.menuItems.reduce((acc, item) => {
         const url = window.location.href;
 
         if (url.includes(item.link)) {
           item.isActive = true;
+        } else if (item.isActive) {
+          item.isActive = false;
         }
 
         return [...acc, ...[item]];
       }, []);
 
-      return menu;
+      this.menuItems = menu;
     }
-  },
-
-  methods: {}
+  }
 };
 </script>
 

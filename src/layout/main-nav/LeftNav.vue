@@ -195,8 +195,8 @@ export default {
       }
 
       &:hover {
-        width: 330px;
-        background: $bg-darkest;
+        // width: 330px;
+        // background: $bg-darkest;
       }
     }
 
