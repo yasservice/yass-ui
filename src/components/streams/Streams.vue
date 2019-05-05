@@ -137,11 +137,5 @@ export default {
 <style lang="scss" scoped>
 .streams {
   padding-top: $block-space;
- 
-  &__row {
-  }
-
-  &__col {
-  }
 }
 </style>

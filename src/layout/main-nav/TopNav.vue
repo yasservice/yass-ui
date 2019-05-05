@@ -4,6 +4,8 @@
     <search-input class="main-nav__search">
     </search-input>
 
+    <top-menu class="main-nav__menu"></top-menu>
+
     <user-badge class="main-nav__alert"></user-badge>  
 
     <user-popover class="main-nav__userpopover"></user-popover>
@@ -14,6 +16,8 @@ import UserPopover from "@/components/user/UserPopover";
 import UserBadge from "@/components/user/UserBadge";
 import SearchInput from "@/components/SearchInput";
 
+import TopMenu from './TopMenu'
+
 export default {
   name: "TopNav",
 
@@ -21,6 +25,7 @@ export default {
     UserPopover,
     UserBadge,
     SearchInput,
+    TopMenu
   },
 
   data() {
@@ -61,12 +66,15 @@ export default {
       }
     }
 
+    &__menu {
+      margin: auto;
+    }
+
     &__search {
       width: 340px;
     }
 
     &__alert {
-      margin-left: auto;
       margin-right: 20px;
       padding: 0 20px;
       height: calc(100% + 20px);
