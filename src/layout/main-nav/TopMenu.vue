@@ -53,9 +53,9 @@ export default {
           text: "friends"
         },
         {
-          link: "xz",
+          link: "categories",
           icon: faCrown,
-          text: "xz"
+          text: "categories"
         },
         {
           link: "subscribes",

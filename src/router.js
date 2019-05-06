@@ -44,7 +44,7 @@ const router = new Router({
       {
         path: '/',
         name: 'Home',
-        component: () => import( /* webpackChunkName: "about" */ './views/Home.vue')
+        component: () => import( /* webpackChunkName: "Home" */ './views/Home.vue')
       },
       {
         path: 'about',
@@ -55,6 +55,11 @@ const router = new Router({
         path: 'band',
         name: 'Band',
         component: () => import( /* webpackChunkName: "about" */ './views/Band.vue')
+      },
+      {
+        path: 'categories',
+        name: 'Categories',
+        component: () => import( /* webpackChunkName: "categories" */ './views/Categories.vue')
       },]
   },
 

@@ -3,7 +3,7 @@
     <div class="stream-categories__title-body">
       <h2 class="stream-categories__title">CURRENT STREAMING CATEGORIES</h2>
 
-      <router-link :to="{path: '/'}" class="link-primary">
+      <router-link :to="{path: 'categories'}" class="link-primary">
         <span>see all</span>
 
         <span class="link-primary__icon">
@@ -27,7 +27,11 @@
     </el-row>-->
 
     <div class="stream-categories__row">
-      <div class="stream-categories__col" v-for="(item, index) in categories" :key="'category item' + index">
+      <div
+        class="stream-categories__col"
+        v-for="(item, index) in categories"
+        :key="'category item' + index"
+      >
         <category-item :item="item"></category-item>
       </div>
     </div>
@@ -135,6 +139,12 @@ export default {
     flex-wrap: nowrap;
     margin-left: -1rem;
     margin-right: -1rem;
+
+    &:nth-child(8) {
+      @include adopt("lg-and-down") {
+        display: none;
+      }
+    }
   }
 
   &__col {
@@ -142,6 +152,42 @@ export default {
     max-width: 50%;
     width: 12rem;
     padding: 0 1rem;
+
+    &:nth-child(8) {
+      @include adopt("lg-and-down") {
+        display: none;
+      }
+    }
+
+    &:nth-child(7) {
+      @include adopt("lg-and-down") {
+        display: none;
+      }
+    }
+
+    &:nth-child(6) {
+      @include adopt("md-and-down") {
+        display: none;
+      }
+    }
+
+    &:nth-child(5) {
+      @include adopt("md-and-down") {
+        display: none;
+      }
+    }
+
+    &:nth-child(4) {
+      @include adopt("sm-and-down") {
+        display: none;
+      }
+    }
+
+    &:nth-child(3) {
+      @include adopt("sm-and-down") {
+        display: none;
+      }
+    }
   }
 }
 </style>
