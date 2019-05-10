@@ -7,6 +7,7 @@
     width="40%"
     center
     :append-to-body="true"
+    :fullscreen="true"
   >
     <div slot="title">
       <el-switch
@@ -24,20 +25,43 @@
       :rules="authRuls"
       ref="authForm"
       class="auth-form regestrations-form"
+      id="signupForm"
     >
       <el-form-item prop="email" label="Email">
-        <el-input v-model="authForm.email" type="email"></el-input>
+        <el-input
+          v-model="authForm.email"
+          type="email"
+          @focus="transformToDefaultInput"
+          @blur="transformInput"
+        ></el-input>
       </el-form-item>
 
       <el-form-item label="Age" prop="age">
-        <el-input v-model.number="authForm.age" type="number"></el-input>
+        <el-input
+          v-model.number="authForm.age"
+          type="number"
+          @focus="transformToDefaultInput"
+          @blur="transformInput"
+        ></el-input>
       </el-form-item>
 
       <el-form-item label="Password" prop="pass">
-        <el-input type="password" v-model="authForm.pass" autocomplete="off"></el-input>
+        <el-input
+          type="password"
+          v-model="authForm.pass"
+          autocomplete="off"
+          @focus="transformToDefaultInput"
+          @blur="transformInput"
+        ></el-input>
       </el-form-item>
       <el-form-item label="Confirm" prop="checkPass">
-        <el-input type="password" v-model="authForm.checkPass" autocomplete="off"></el-input>
+        <el-input
+          type="password"
+          v-model="authForm.checkPass"
+          autocomplete="off"
+          @focus="transformToDefaultInput"
+          @blur="transformInput"
+        ></el-input>
       </el-form-item>
 
       <el-form-item>
@@ -53,13 +77,25 @@
       :rules="authRuls"
       ref="authForm"
       class="auth-form authorization-form"
+      id="loginForm"
     >
       <el-form-item prop="email" label="Email">
-        <el-input v-model="authForm.email" type="email"></el-input>
+        <el-input
+          v-model="authForm.email"
+          type="email"
+          @focus="transformToDefaultInput"
+          @blur="transformInput"
+        ></el-input>
       </el-form-item>
 
       <el-form-item label="Password" prop="pass">
-        <el-input type="password" v-model="authForm.pass" autocomplete="off"></el-input>
+        <el-input
+          type="password"
+          v-model="authForm.pass"
+          autocomplete="off"
+          @focus="transformToDefaultInput"
+          @blur="transformInput"
+        ></el-input>
       </el-form-item>
 
       <el-form-item>
@@ -166,6 +202,25 @@ export default {
       this.$store.commit("dialogShow", { name, show: false });
     },
 
+    transformInput(event) {
+      const inputWrap = event.target.parentElement.parentElement.parentElement; //TODO переписать
+      const label = inputWrap.querySelector("label");
+      if (
+        label.classList.contains("reset-transform") &&
+        event.target.value === ""
+      ) {
+        label.classList.remove("reset-transform");
+      }
+    },
+
+    transformToDefaultInput(event) {
+      const inputWrap = event.target.parentElement.parentElement.parentElement; //TODO переписать
+      const label = inputWrap.querySelector("label");
+      if (!label.classList.contains("reset-transform")) {
+        label.classList.add("reset-transform");
+      }
+    },
+
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
@@ -224,6 +279,53 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+#signupForm,
+#loginForm {
+  max-width: 300px;
+  margin: 0 auto;
+
+  input {
+    background: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+
+    color: $white;
+  }
+
+  label {
+    position: relative;
+    transform: translateY(45px) scale(1.2);
+
+    color: $white;
+
+    transition: 0.1s cubic-bezier(0.39, 0.58, 0.57, 1) transform, 0.1s cubic-bezier(0.39, 0.58, 0.57, 1) color;
+
+    &.reset-transform {
+      color: $info;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .el-form-item.is-success .el-input__inner {
+    border-color: $primary;
+  }
+
+  .el-form-item.is-success .el-input__validateIcon {
+    color: $primary;
+  }
+}
+</style>
+
 
 <style lang="scss" scoped>
 .auth-dialog {

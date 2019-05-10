@@ -155,7 +155,7 @@ export default {
 <style lang="scss" scoped>
 .main-nav {
   &__left {
-    z-index: 3010;
+    z-index: 210;
     position: fixed;
     left: 0;
     top: 0;
@@ -163,14 +163,14 @@ export default {
     border-right: 1px solid $border-color;
 
     &-menu {
-      z-index: 3009;
+      z-index: 209;
       position: fixed;
       left: 80px;
       top: 0;
       height: 100vh;
 
       &-mask {
-        z-index: 3008;
+        z-index: 208;
         position: fixed;
         left: 80px;
         top: 0;
