@@ -32,3 +32,23 @@
     opacity: 0.8;
   }
 }
+
+.btn-auth {
+  padding: 5px 20px;
+
+  background: $white;
+  border-radius: 20px;
+  
+  text-transform: uppercase;
+  color: $bg-darkest;
+  font-size: 16px;
+  line-height: 18px;
+
+  transform: scale(1);
+  transition: 0.2s linear transform;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.2);
+  }
+}

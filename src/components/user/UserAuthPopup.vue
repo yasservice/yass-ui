@@ -9,17 +9,14 @@
     :append-to-body="true"
     :fullscreen="true"
   >
-    <div slot="title">
-      <el-switch
-        v-model="showSignupForm"
-        active-text="Sign up"
-        inactive-text="Log in"
-        @change="resetForm('authForm')"
-      ></el-switch>
+    <div slot="title" clss="auth-dialog__header">
+      <img :src="require(`@/assets/logo.png`)" alt="stream logo" class="auth-dialog__header-img">
+      <h2 class="auth-dialog__header-title">{{ popupTitle }}</h2>
+      <p class="auth-dialog__header-subtitle">{{ popupSubtitle }}</p>
     </div>
 
     <el-form
-      v-if="showSignupForm"
+      v-if="whichFormShow === 'signup'"
       :model="authForm"
       status-icon
       :rules="authRuls"
@@ -64,14 +61,15 @@
         ></el-input>
       </el-form-item>
 
-      <el-form-item>
-        <el-button type="primary" @click="submitForm('authForm')">Submit</el-button>
-        <el-button @click="resetForm('authForm')">Reset</el-button>
-      </el-form-item>
+      <div class="auth-dialog__btn-body">
+        <button class="btn-reset btn-auth" @click.prevent="submitForm('authForm')">sign up</button>
+      </div>
+
+      <button class="btn-reset change-form-btn" @click.prevent="changeForm('signin')">sign in</button>
     </el-form>
 
     <el-form
-      v-else
+      v-else-if="whichFormShow === 'signin'"
       :model="authForm"
       status-icon
       :rules="authRuls"
@@ -98,10 +96,44 @@
         ></el-input>
       </el-form-item>
 
-      <el-form-item>
-        <el-button type="primary" @click="submitForm('authForm')">Submit</el-button>
-        <el-button @click="resetForm('authForm')">Reset</el-button>
+      <div class="auth-dialog__btn-body">
+        <button class="btn-reset btn-auth" @click.prevent="submitForm('authForm')">sign in</button>
+      </div>
+
+      <p class="auth-dialog__change-form">
+        Forgot Password?
+        <button class="btn-reset" @click.prevent="changeForm('pass')">Reset</button>
+      </p>
+
+      <button class="btn-reset change-form-btn" @click.prevent="changeForm('signup')">sign up</button>
+    </el-form>
+
+    <el-form
+      v-else
+      :model="authForm"
+      status-icon
+      :rules="authRuls"
+      ref="authForm"
+      class="auth-form authorization-form"
+      id="loginForm"
+    >
+      <el-form-item prop="email" label="Email">
+        <el-input
+          v-model="authForm.email"
+          type="email"
+          @focus="transformToDefaultInput"
+          @blur="transformInput"
+        ></el-input>
       </el-form-item>
+
+      <div class="auth-dialog__btn-body">
+        <button class="btn-reset btn-auth" @click.prevent="submitForm('authForm')">Reset password</button>
+      </div>
+
+      <p class="auth-dialog__change-form">
+        Remember password ?
+        <button class="btn-reset" @click.prevent="changeForm('signin')">Sign in</button>
+      </p>
     </el-form>
   </el-dialog>
 </template>
@@ -179,9 +211,12 @@ export default {
         ]
       },
 
-      showSignupForm: true,
+      whichFormShow: "signin",
 
-      isFormCorrect: false
+      isFormCorrect: false,
+
+      popupTitle: "SIGN IN",
+      popupSubtitle: "Hello there! Sign in and start having fun"
     };
   },
 
@@ -218,6 +253,38 @@ export default {
       const label = inputWrap.querySelector("label");
       if (!label.classList.contains("reset-transform")) {
         label.classList.add("reset-transform");
+      }
+    },
+
+    changeForm(formName) {
+      this.resetForm("authForm");
+
+      const label = document.querySelector("label.reset-transform");
+      if (label) {
+        label.classList.remove("reset-transform");
+      }
+
+      switch (formName) {
+        case "signin": {
+          this.whichFormShow = "signin";
+          this.popupTitle = "SIGN IN";
+          this.popupSubtitle = "Hello there! Sign in and start having fun";
+          return;
+        }
+
+        case "signup": {
+          this.whichFormShow = "signup";
+          this.popupTitle = "SIGN up";
+          this.popupSubtitle = "Hello there! Sign up and start having fun";
+          return;
+        }
+
+        default: {
+          this.whichFormShow = "reset";
+          this.popupTitle = "Reset password";
+          this.popupSubtitle = "";
+          return;
+        }
       }
     },
 
@@ -281,9 +348,18 @@ export default {
 </script>
 
 <style lang="scss">
+.auth-dialog {
+  .el-dialog__body {
+    // height: 100%;
+  }
+}
+
 #signupForm,
 #loginForm {
   max-width: 300px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
 
   input {
@@ -302,7 +378,8 @@ export default {
 
     color: $white;
 
-    transition: 0.1s cubic-bezier(0.39, 0.58, 0.57, 1) transform, 0.1s cubic-bezier(0.39, 0.58, 0.57, 1) color;
+    transition: 0.1s cubic-bezier(0.39, 0.58, 0.57, 1) transform,
+      0.1s cubic-bezier(0.39, 0.58, 0.57, 1) color;
 
     &.reset-transform {
       color: $info;
@@ -329,5 +406,60 @@ export default {
 
 <style lang="scss" scoped>
 .auth-dialog {
+  &__header {
+    &-title {
+      text-transform: uppercase;
+    }
+
+    &-subtitle {
+      margin: 0;
+      color: $white;
+    }
+  }
+
+  &__btn-body {
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .change-form-btn {
+    margin-top: auto;
+    margin-bottom: 20px;
+
+    font-size: 16px;
+    line-height: 20px;
+    color: $primary;
+    text-transform: uppercase;
+
+    transform: scale(1);
+    transition: 0.2s linear transform;
+
+    &:hover,
+    &:focus {
+      transform: scale(1.2);
+    }
+  }
+
+  &__change-form {
+    margin-top: 0;
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+
+    color: $info;
+    text-align: center;
+
+    button {
+      color: $white;
+
+      transition: 0.1s linear color;
+
+      &:hover,
+      &:focus {
+        color: $primary;
+      }
+    }
+  }
 }
 </style>

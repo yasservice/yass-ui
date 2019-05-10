@@ -1,7 +1,7 @@
 <template>
     <div class="auth-wrap">
         <button class="btn-reset auth-btn" @click="showModal('userAuth')">
-            Login/Signup
+            Sign Up or Sing In
         </button>
 
         <user-auth-popup></user-auth-popup>
