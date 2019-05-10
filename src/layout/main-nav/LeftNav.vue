@@ -3,11 +3,21 @@
     <div class="main-nav__left-body" :class="{'main-nav__left-body--fixed': toggleMenu}">
       <button
         class="main-nav__left-menu-toggle menu-toggle btn-reset"
-        @click="toggleMenu = !toggleMenu"
+        @click="toggleMenu = true"
+        v-show="!toggleMenu"
       >
         <font-awesome-icon :icon="faBars" aria-label="true" v-show="!toggleMenu"></font-awesome-icon>
-        <font-awesome-icon :icon="faWindowClose" aria-label="true" v-show="toggleMenu"></font-awesome-icon>
       </button>
+
+      <div v-show="toggleMenu" class="main-nav__left-close-menu">
+        <img :src="require(`@/assets/logo.png`)" alt="loggo stream" width="50" height="50" class="main-nav__left-close-menu-img">
+
+        <h2 class="main-nav__left-close-menu-title">Stream</h2>
+
+        <button  @click="toggleMenu = false" class="btn-reset main-nav__left-close-menu-close-btn">
+            <font-awesome-icon :icon="faChevronLeft" aria-label="true" v-show="toggleMenu"></font-awesome-icon>
+        </button>
+      </div>
 
       <router-link
         :to="{ path: '/' }"
@@ -15,7 +25,9 @@
         title="link to friens"
       >
         <font-awesome-icon :icon="faUsers" aria-label="true"></font-awesome-icon>
-
+        
+        <span class="link-to-friends__text" v-show="toggleMenu">Followed Channels</span>
+        
         <span class="link-to-friends__count">{{ onlineFriends }}</span>
       </router-link>
 
@@ -31,6 +43,8 @@
         title="hot streams"
       >
         <font-awesome-icon :icon="faFire" aria-label="true"></font-awesome-icon>
+
+        <span class="link-to-hot-streams__text" v-show="toggleMenu">Most Viewing Now</span>
       </router-link>
 
       <!--       <ul class="main-nav__left-stream-list ul">
@@ -45,6 +59,7 @@
         title="user settings"
       >
         <font-awesome-icon :icon="faCog" aria-label="true"></font-awesome-icon>
+        <span v-show="toggleMenu" class="user-settings-link__text">Settings</span>
       </router-link>
     </div>
 
@@ -61,7 +76,7 @@ import {
   faBars,
   faFire,
   faCog,
-  faWindowClose
+  faChevronLeft
 } from "@fortawesome/free-solid-svg-icons";
 import UserStreamInfo from "@/components/user/UserStreamInfo";
 import MainMenu from "./MainMenu";
@@ -76,7 +91,7 @@ export default {
     faCog,
     MainMenu,
     UserStreamInfo,
-    faWindowClose
+    faChevronLeft
   },
 
   data() {
@@ -86,7 +101,7 @@ export default {
       faBars,
       faFire,
       faCog,
-      faWindowClose,
+      faChevronLeft,
 
       onlineFriends: 4,
 
@@ -182,6 +197,35 @@ export default {
       }
     }
 
+    &-close-menu {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      padding: 15px;
+
+      &-img {
+
+      }
+
+      &-title {
+        color: $white;
+        margin: 0 0 0 15px;
+      }
+
+      &-close-btn {
+        height: 100%;
+        margin-left: auto;
+        
+        font-size: 20px;
+        color: $info;
+
+        &:hover,
+        &:focus {
+          color: $white;
+        }
+      }
+    }
+
     &-body {
       width: 80px;
       height: 100%;
@@ -208,8 +252,8 @@ export default {
     &-link-to-friends {
       width: 100%;
       display: inline-flex;
-      justify-content: center;
-      padding: 15px;
+      justify-content: flex-start;
+      padding: 15px 25px;
       border-top: 1px solid $border-color;
       border-bottom: 1px solid $border-color;
     }
@@ -224,8 +268,8 @@ export default {
     &-link-to-hot-streams {
       width: 100%;
       display: block;
-      text-align: center;
-      padding: 7px 0;
+
+      padding: 7px 35px;
 
       border-top: 1px solid $border-color;
       border-bottom: 1px solid $border-color;
@@ -238,7 +282,7 @@ export default {
 
       width: 100%;
       display: block;
-      text-align: center;
+      padding: 7px 31px;
     }
   }
 }
@@ -259,6 +303,11 @@ export default {
 
   transition: color linear 0.1s;
   text-decoration: none;
+
+  &__text {
+    margin-right: auto;
+    margin-left: 35px;
+  }
 
   &:hover,
   &:focus {
@@ -282,10 +331,14 @@ export default {
 }
 
 .link-to-hot-streams {
-  text-align: center;
   color: $icon;
+  text-decoration: none;
 
   transition: 0.1s color linear;
+
+  &__text {
+    margin-left: 35px;
+  }
 
   &:hover,
   &:focus {
@@ -294,11 +347,15 @@ export default {
 }
 
 .user-settings-link {
-  font-size: 20px;
-  text-align: center;
+  font-size: 16px;
+  text-decoration: none;
   color: $icon;
 
   transition: 0.1s color linear;
+
+  &__text {
+    margin-left: 35px;
+  }
 
   &:hover,
   &:focus {

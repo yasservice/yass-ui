@@ -233,10 +233,20 @@ export default {
   },
 
   methods: {
+    /**
+     * close popup
+     */
     close(name) {
+      // reset form to default
+      this.changeForm("signin");
+
+      // close popup
       this.$store.commit("dialogShow", { name, show: false });
     },
 
+    /**
+     * animate label input
+     */
     transformInput(event) {
       const inputWrap = event.target.parentElement.parentElement.parentElement; //TODO переписать
       const label = inputWrap.querySelector("label");
@@ -248,6 +258,9 @@ export default {
       }
     },
 
+    /**
+     * return labels to defaut position
+     */
     transformToDefaultInput(event) {
       const inputWrap = event.target.parentElement.parentElement.parentElement; //TODO переписать
       const label = inputWrap.querySelector("label");
@@ -256,14 +269,20 @@ export default {
       }
     },
 
+    /**
+     * chnage form
+     */
     changeForm(formName) {
+      // reset form
       this.resetForm("authForm");
 
+      // if form label is animated return to default
       const label = document.querySelector("label.reset-transform");
       if (label) {
         label.classList.remove("reset-transform");
       }
 
+      // swith to form
       switch (formName) {
         case "signin": {
           this.whichFormShow = "signin";
@@ -288,22 +307,39 @@ export default {
       }
     },
 
+    /**
+     * submin form
+     */
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
-        if (valid) {
-          if (this.showSignupForm) {
-            this.signup();
+        if (!valid) {
+          console.error("error submit!!");
+          return false;
+        }
+
+        //
+        switch (this.whichFormShow) {
+          case "signin": {
+            this.signIn();
             return;
           }
 
-          this.login();
-        } else {
-          console.error("error submit!!");
-          return false;
+          case "signup": {
+            this.signUp();
+            return;
+          }
+
+          default: {
+            this.resetPassword();
+            return;
+          }
         }
       });
     },
 
+    /**
+     * reset form
+     */
     resetForm(formName) {
       this.$refs[formName].resetFields();
     },
@@ -311,7 +347,7 @@ export default {
     /**
      * signup user
      */
-    signup() {
+    signUp() {
       const { pass: password, email, age } = this.authForm;
 
       console.log("signup called");
@@ -325,10 +361,10 @@ export default {
     /**
      * login user
      */
-    login() {
+    signIn() {
       const { pass: password, email } = this.authForm;
 
-      console.log("signup called");
+      console.log("singin called");
 
       this.close("userAuth");
       this.resetForm("authForm");
@@ -342,6 +378,20 @@ export default {
       //   })
 
       console.log(password, email);
+    },
+
+    /**
+     * reset password
+     */
+    resetPassword() {
+      const { email } = this.authForm;
+
+      console.log("resetpass called");
+
+      this.close("userAuth");
+      this.resetForm("authForm");
+
+      console.log(email);
     }
   }
 };

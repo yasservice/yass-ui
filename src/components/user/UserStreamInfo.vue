@@ -5,13 +5,14 @@
 
       <div class="user-stream-info__additional-body">
         <p
-          v-if="sreamInfo.status === 'streaming'"
           class="user-stream-info__additional user-stream-info__stream-name"
-        >{{ sreamInfo.streamName }}</p>
+           :class="{'user-stream-info__stream-name--offline': sreamInfo.status === 'offline'}"
+        >{{ sreamInfo.channelName }}</p>
 
         <p
           class="user-stream-info__additional user-stream-info__channel-name"
-        >{{ sreamInfo.channelName }}</p>
+          :class="{'user-stream-info__channel-name--online': sreamInfo.status === 'online'}"
+        >{{ sreamInfo.status === 'streaming' ? sreamInfo.streamName : sreamInfo.status }}</p>
       </div>
     </div>
 
@@ -86,12 +87,20 @@ export default {
     font-size: 16px;
     line-height: 20px;
     color: $white;
+
+    &--offline {
+      color: $info;
+    }
   }
 
   &__channel-name {
     font-size: 14px;
     line-height: 16px;
     color: $info;
+
+     &--online {
+      color: $status--online;
+    }
   }
 
   &__views {
