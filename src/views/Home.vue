@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <ApolloQuery :query="require('../graphql/user/user.gql')" 
+    <ApolloQuery :query="require('../graphql/user/User.gql')" 
     :variables="{ id }">
       <template slot-scope="{ result: { loading, error, data } }">
         <!-- Loading -->
