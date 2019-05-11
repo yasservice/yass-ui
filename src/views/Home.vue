@@ -1,20 +1,38 @@
 <template>
   <div class="home">
+    <ApolloQuery :query="require('../graphql/user/user.gql')" 
+    :variables="{ id }">
+      <template slot-scope="{ result: { loading, error, data } }">
+        <!-- Loading -->
+        <div v-if="loading" class="loading apollo">Loading...</div>
+
+        <!-- Error -->
+        <div v-else-if="error" class="error apollo">An error occured</div>
+
+        <!-- Result -->
+        <div v-else-if="data" class="result apollo">{{ data }}</div>
+
+        <!-- No result -->
+        <div v-else class="no-result apollo">No result :(</div>
+      </template>
+    </ApolloQuery>
   </div>
 </template>
 
 <script>
-
-
 export default {
-  name: 'Home',
-  components: {
+  name: "Home",
+  components: {},
+  data() {
+    return {
+      id: 1,
+    }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-  .home {
-    padding: 40px 0;
-  }
+.home {
+  padding: 40px 0;
+}
 </style>
