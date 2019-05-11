@@ -24,6 +24,15 @@
       class="auth-form regestrations-form"
       id="signupForm"
     >
+      <el-form-item prop="name" label="Name">
+        <el-input
+          v-model="authForm.name"
+          type="text"
+          @focus="transformToDefaultInput"
+          @blur="transformInput"
+        ></el-input>
+      </el-form-item>
+
       <el-form-item prop="email" label="Email">
         <el-input
           v-model="authForm.email"
@@ -164,7 +173,7 @@ export default {
 
     const validatePass = (rule, value, callback) => {
       if (value === "") {
-        callback(new Error("Пожалуйста введите пароль"));
+        callback(new Error("Please enter password"));
       } else {
         if (this.authForm.checkPass !== "") {
           this.$refs.authForm.validateField("checkPass");
@@ -175,9 +184,19 @@ export default {
 
     const validatePass2 = (rule, value, callback) => {
       if (value === "") {
-        callback(new Error("Пожалуйста введите пароль еще раз"));
+        callback(new Error("Please enter password again"));
       } else if (value !== this.authForm.pass) {
-        callback(new Error("Пароли не совпадают"));
+        callback(new Error("Password don't match"));
+      } else {
+        callback();
+      }
+    };
+
+    const checkName = (rule, value, callback) => {
+      if (value === "") {
+        callback(new Error("Please enter name"))
+      } else if (value.length <= 2) {
+        callback(new Error("Name must contain at least 3 character"))
       } else {
         callback();
       }
@@ -188,27 +207,29 @@ export default {
         pass: "",
         checkPass: "",
         age: "",
-        email: ""
+        email: "",
+        name: "",
       },
 
       authRuls: {
-        pass: [{ required: true, validator: validatePass, trigger: "blur" }],
+        pass: [{ required: true, validator: validatePass, trigger: "change" }],
         checkPass: [
-          { required: true, validator: validatePass2, trigger: "blur" }
+          { required: true, validator: validatePass2, trigger: "change" }
         ],
-        age: [{ required: true, validator: checkAge, trigger: "blur" }],
+        age: [{ required: true, validator: checkAge, trigger: "change" }],
         email: [
           {
             required: true,
-            message: "Пожалуйста введите email",
-            trigger: "blur"
+            message: "Please enter email",
+            trigger: "change"
           },
           {
             type: "email",
-            message: "Не корректный email",
-            trigger: ["blur", "change"]
+            message: "It's not look like email",
+            trigger: ["change", "change"]
           }
-        ]
+        ],
+        name: [{required: true, validator: checkName, trigger: "change" }]
       },
 
       whichFormShow: "signin",
@@ -348,14 +369,14 @@ export default {
      * signup user
      */
     signUp() {
-      const { pass: password, email, age } = this.authForm;
+      const { pass: password, email, age, name } = this.authForm;
 
       console.log("signup called");
 
       this.close("userAuth");
       this.resetForm("authForm");
 
-      console.log(password, email, age);
+      this.$store.dispatch("user/signupUser", { name, email, password });
     },
 
     /**
