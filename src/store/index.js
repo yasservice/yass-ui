@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import gql from 'graphql-tag'
-import { createProvider as apollo } from '@/plugins/vue-apollo'
+import { defaultClient as apolloClient } from "../plugins/vue-apollo";
+import gql from 'graphql-tag';
 
 import state from './state';
 import getters from './getters';

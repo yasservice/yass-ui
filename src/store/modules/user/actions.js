@@ -1,14 +1,18 @@
-import CREATE_USER from '@/graphql/user/CreateUser.gql'
-import gql from 'graphql-tag';
+import USER from "@/graphql/user/User.gql";
+import { defaultClient as apolloClient } from "@/plugins/vue-apollo";
 
 export default {
-    signupUser: ({ commit }, payload) => {
-     apollo.mutations(
-       {
-           mutations: gql`
-            CREATE_USER
-           `
-       }
-     )
-    }
-}
+  getUser: ({ commit }, payload) => {
+    apolloClient
+      .query({
+        query: USER,
+        variables: payload
+      })
+      .then(({ data }) => {
+        commit('setUserData', data);
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  }
+};
