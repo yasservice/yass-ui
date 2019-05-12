@@ -1,5 +1,5 @@
 <template>
-  <router-link class="link-to-start-stream btn-reset btn-primary" :to="{path: '/'}">
+  <router-link class="link-to-start-stream btn-reset btn-primary btn-primary--light-primary" :to="{path: '/'}">
     <span class="link-to-start-stream__icon">
       <i class="el-icon-video-play"></i>
     </span>

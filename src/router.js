@@ -54,13 +54,19 @@ const router = new Router({
       {
         path: 'band',
         name: 'Band',
-        component: () => import( /* webpackChunkName: "about" */ './views/Band.vue')
+        component: () => import( /* webpackChunkName: "band" */ './views/Band.vue')
       },
       {
         path: 'categories',
         name: 'Categories',
         component: () => import( /* webpackChunkName: "categories" */ './views/Categories.vue')
-      },]
+      },
+      {
+        path: 'studio',
+        name: 'Studio',
+        component: () => import( /* webpackChunkName: "studio" */ './views/Studio.vue'),
+      }
+    ]
   },
 
   /*auth required*/

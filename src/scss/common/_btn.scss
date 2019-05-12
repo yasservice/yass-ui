@@ -14,6 +14,8 @@
 }
 
 .btn-primary {
+  padding: 10px;
+
   font-weight: bold;
   font-size: 10px;
   line-height: 12px;
@@ -21,15 +23,29 @@
   text-transform: uppercase;
   border-radius: $--border-radius-base;
 
-  background: linear-gradient(158.58deg, #0097F2 -15.81%, #00ACFF 87.01%);
-  box-shadow: 0px 0px 5px #00A0F8;
-
-
   transition: 0.1s opacity linear;
 
   &:hover,
   &:focus {
     opacity: 0.8;
+  }
+
+  &__icon {
+    margin-right: 6px;
+  }
+
+  &__text {
+
+  }
+
+  &--primary {
+    background: linear-gradient(158.58deg, #c4512a -15.81%, #f57b51 87.01%);
+    box-shadow: 0px 0px 5px #c4512a;
+  }
+
+  &--light-primary {
+    background: linear-gradient(158.58deg, #0097f2 -15.81%, #00acff 87.01%);
+    box-shadow: 0px 0px 5px #00a0f8;
   }
 }
 
@@ -38,7 +54,7 @@
 
   background: $white;
   border-radius: 20px;
-  
+
   text-transform: uppercase;
   color: $bg-darkest;
   font-size: 16px;

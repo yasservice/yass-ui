@@ -58,9 +58,9 @@ export default {
           text: "categories"
         },
         {
-          link: "subscribes",
+          link: "studio",
           icon: faBroadcastTower,
-          text: "subscribes"
+          text: "studio"
         },
         {
           link: "news",

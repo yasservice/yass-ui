@@ -21,7 +21,6 @@ export default {
   components: {
     Categories,
     StreamTabs,
-    StartStream,
     DefaultHeader
   },
 

@@ -1,4 +1,4 @@
-@import './variables';
+@import "./variables";
 
 .el-col {
   margin-bottom: $block-space;
@@ -9,8 +9,7 @@
 }
 
 body {
-
-   /* modal
+  /* modal
   -------------------------- */
   .el-dialog {
     // background: $black;
@@ -19,43 +18,21 @@ body {
     // background: $bg--most-darkes;
   }
 
-   /* form
+  /* form
   -------------------------- */
-  // .el-form-item__label {
-  //   color: $sky-blue;
-  // }
+  .el-form-item__label {
+    color: $label--color;
+  }
 
-  // .el-input__inner {
-  //   font-size: calc(6px + 1vw);
-  //   line-height: 1.2;  
+  .el-input__inner {
+    background: $bg-darkest;
+    color: $white;
+    border-color: $bg-darkest;
 
-  //   @include adopt('sm-and-down') {
-  //     font-size: calc(16px + 1vw);
-  //   }
-
-  // }
-
-  // .el-form-item__label {
-  //   font-size: calc(6px + 1vw);
-  //   line-height: 1.2;
-
-  //   @include adopt('sm-and-down') {
-  //     font-size: calc(16px + 1vw);
-  //   }
-  // }
-
-  // .el-form-item__error  {
-  //   font-size: calc(6px + 1vw);
-  //   line-height: 1.2;
-
-  //   @include adopt('sm-and-down') {
-  //     font-size: calc(16px + 1vw);
-  //   }
-  // }
-
-  // .el-form-item {
-  //   margin-bottom: 6%;
-  // }
+    &::placeholder {
+      color: $info--light;
+    }
+  }
 
   // /* buttons
   // -------------------------- */
