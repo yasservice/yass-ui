@@ -68,3 +68,11 @@
     transform: scale(1.2);
   }
 }
+
+.btn-open-in-new-window {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  color: $icon;
+}

@@ -4,7 +4,7 @@
       <img :src="require(`@/assets/stream.png`)" alt="stream video">
     </div>
 
-    <el-form ref="studioForm" :model="studioForm">
+    <el-form ref="studioForm" :model="studioForm" :rules="rules">
       <el-row :gutter="30">
         <el-col :span="12">
           <el-form-item label="Title">
@@ -37,7 +37,7 @@
         <el-col :span="3">
           <button
             class="live-video__update-btn btn-reset btn-primary btn-primary--primary"
-            @click.prevent="submitForm"
+            @click.prevent="submitForm('studioForm')"
           >
             <span class="live-video__update-btn-icon btn-primary__icon">
               <font-awesome-icon :icon="faRedo" aria-label="true" :spin="isFormSubmited"></font-awesome-icon>
@@ -67,6 +67,39 @@ export default {
         category: "",
         language: ""
       },
+      rules: {
+        title: [
+          {
+            min: 3,
+            required: true,
+            message: "title must containt more than 2 characters",
+          },
+           { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' }
+        ],
+        liveNotification: [
+          {
+            min: 3,
+            message: "notification must containt more than 2 characters",
+            trigger: "change"
+          }
+        ],
+        category: [
+          {
+            min: 3,
+            message: "category must containt more than 2 characters",
+            trigger: "change"
+          }
+        ],
+        language: [
+          {
+            min: 3,
+            message: "language must containt more than 2 characters",
+            trigger: "change"
+          }
+        ]
+      },
+
+      // icon
       faRedo,
 
       isFormSubmited: false
@@ -74,9 +107,16 @@ export default {
   },
 
   methods: {
-    async submitForm() {
+    async submitForm(formName) {
       this.isFormSubmited = true;
       await setTimeout(() => (this.isFormSubmited = false), 1500);
+      
+      this.$refs[formName].validate(valid => {
+          if (!valid) return;
+
+          console.log( this.$refs[formName]);
+        });
+    
     }
   }
 };
