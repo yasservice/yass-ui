@@ -6,7 +6,8 @@
     <!-- <chat></chat> -->
     <!-- <stream-action></stream-action> -->
     <!-- <stream-status></stream-status> -->
-    <stream-state></stream-state>
+    <!-- <stream-state></stream-state> -->
+    <stream-bitrate></stream-bitrate>
   </div>
 </template>
 <script>
@@ -16,6 +17,7 @@ import Chat from "@/components/chat/Chat";
 import StreamAction from "@/components/studio/StreamAction";
 import StreamStatus from "@/components/studio/StreamStatus";
 import StreamState from "@/components/studio/StreamState";
+import StreamBitrate from "@/components/studio/StreamBitrate";
 
 export default {
   name: "Studio",
@@ -26,7 +28,8 @@ export default {
     Chat,
     StreamAction,
     StreamStatus,
-    StreamState
+    StreamState,
+    StreamBitrate
   },
 
   data() {

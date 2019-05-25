@@ -1,5 +1,6 @@
-@import './element-variables';
+@import './element-variables.scss';
 @import './element-overwrite.scss';
+@import './chartist-overwrite.scss';
 
 $assets: '~@/assets/';
 
