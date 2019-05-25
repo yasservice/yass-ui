@@ -1,5 +1,5 @@
 <template>
-  <section class="chat">
+  <section class="chat studio-block">
     <open-new-window :title="'Chat'"></open-new-window>
 
     <div class="chat__body">
@@ -98,7 +98,7 @@ export default {
     },
 
     isMessageForStreamer() {
-      const streamer = new RegExp(` @${this.user.name} `);
+      const streamer = new RegExp(`@${this.user.name}`);
       return streamer.test(this.message);
     }
   }
@@ -107,10 +107,7 @@ export default {
 
 <style lang="scss">
 .chat {
-  padding: 10px 12px;
-
-  background-color: $bg--dark;
-  border-radius: $--border-radius-base;
+   
 
   &__body {
     width: 100%;
