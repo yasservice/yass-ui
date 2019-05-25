@@ -3,9 +3,24 @@
     <open-new-window :title="'Chat'"></open-new-window>
 
     <div class="chat__body">
-      <div class="chat__message" v-for="(item, index) in chat" :key="'chat-message' + index">
-        <span class="chat__author">{{ item.author }}:</span>
-        <span class="chat__text">{{ item.message }}</span>
+      <div class="chat__content">
+        <el-scrollbar
+          wrap-class="chat__content-scroll"
+          wrap-style=""
+          view-style=";"
+          view-class="chat__content-view-box"
+          :native="false"
+        >
+          <div
+            class="chat__message"
+            v-for="(item, index) in chat"
+            :key="'chat-message' + index"
+            :class="{ 'is-for-steamer': item.isForStreamer }"
+          >
+            <span class="chat__author">{{ item.author }}: </span>
+            <span class="chat__text">{{ item.message }}</span>
+          </div>
+        </el-scrollbar>
       </div>
 
       <div class="chat__input-body">
@@ -42,6 +57,10 @@ export default {
     return {
       faPaperPlane,
 
+      user: {
+        name: "ss"
+      },
+
       chat: [
         {
           author: "ss",
@@ -49,24 +68,40 @@ export default {
         }
       ],
 
-      message: null,
+      message: null
     };
+  },
+
+  watch: {
+    message: function(newMessage, oldMessage) {
+      if (!this.isMessageForStreamer()) return;
+      const replace = new RegExp(`@${this.user.name}`);
+      // TODO replace user name with link
+    }
   },
 
   methods: {
     sendMessage() {
       if (!this.message) return;
 
+      const isForStreamer = this.isMessageForStreamer();
+
       this.chat.push({
         message: this.message,
-        author: 'ss',
+        author: "ss",
+        isForStreamer
       });
 
-      this.message = '';
+      this.message = "";
 
       return;
+    },
+
+    isMessageForStreamer() {
+      const streamer = new RegExp(` @${this.user.name} `);
+      return streamer.test(this.message);
     }
-  },
+  }
 };
 </script>
 
@@ -82,9 +117,22 @@ export default {
     min-height: 200px;
     max-height: 500px;
     margin-top: 20px;
-    overflow-y: auto; 
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
+  }
+
+  &__content {
+    height: 300px;
+    overflow: hidden;
+
+    &-scroll {
+      height: 300px;
+    }
+
+    &-view-box {
+      padding-right: 5px;
+    }
   }
 
   &__message {
@@ -98,6 +146,10 @@ export default {
 
   &__author {
     color: $--color-danger;
+  }
+
+  .is-for-steamer {
+    background-color: $bg--most-darkest;
   }
 
   &__input-body {
