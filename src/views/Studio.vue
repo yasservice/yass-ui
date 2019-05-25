@@ -5,7 +5,8 @@
     <!-- <live-video></live-video> -->
     <!-- <chat></chat> -->
     <!-- <stream-action></stream-action> -->
-    <stream-status></stream-status>
+    <!-- <stream-status></stream-status> -->
+    <stream-state></stream-state>
   </div>
 </template>
 <script>
@@ -14,6 +15,7 @@ import LiveVideo from "@/components/studio/LiveVideo";
 import Chat from "@/components/chat/Chat";
 import StreamAction from "@/components/studio/StreamAction";
 import StreamStatus from "@/components/studio/StreamStatus";
+import StreamState from "@/components/studio/StreamState";
 
 export default {
   name: "Studio",
@@ -23,7 +25,8 @@ export default {
     LiveVideo,
     Chat,
     StreamAction,
-    StreamStatus
+    StreamStatus,
+    StreamState
   },
 
   data() {

@@ -36,6 +36,7 @@ export default {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 5px;
 
   &__title {
     margin: 0;

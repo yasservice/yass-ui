@@ -1,6 +1,6 @@
 <template>
   <section class="stream-status studio-block">
-    <open-new-window :title="'Stream Status'" style="margin-bottom: 5px"></open-new-window>
+    <open-new-window :title="'Stream Status'"></open-new-window>
 
     <figure
       class="stream-status__body"
