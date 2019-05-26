@@ -24,5 +24,6 @@ export default {
 <style lang="scss" scoped>
 .main-layout {
   padding: 75px 20px  20px 100px;
+  overflow:hidden;
 }
 </style>

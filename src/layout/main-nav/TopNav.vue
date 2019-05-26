@@ -8,9 +8,9 @@
 
     <user-badge class="main-nav__alert"></user-badge>  
 
-    <!-- <user-popover class="main-nav__userpopover"></user-popover> -->
+    <user-popover class="main-nav__userpopover"></user-popover>
 
-    <auth-user></auth-user>
+    <!-- <auth-user></auth-user> -->
   </nav>
 </template>
 <script>

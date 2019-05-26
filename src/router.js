@@ -1,12 +1,12 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import Vue from "vue";
+import Router from "vue-router";
 
-Vue.use(Router)
+Vue.use(Router);
 
 // export default new Router({
 //   routes: [
 //     {
-//       path: '/', name: 'Home', 
+//       path: '/', name: 'Home',
 //       component: () => import(/* webpackChunkName: "home" */ './views/Home.vue'),
 //       children: [
 //         {
@@ -25,7 +25,7 @@ Vue.use(Router)
 //       path: '/account',
 //       name: 'Account',
 //       component: () => import(/* webpackChunkName: "Account" */ './views/Account.vue'),
-//       meta: { requiresAuth: true , method: 'POST' } 
+//       meta: { requiresAuth: true , method: 'POST' }
 //     }
 //   ],
 
@@ -35,50 +35,66 @@ Vue.use(Router)
 // });
 
 const router = new Router({
-  mode: 'history',
+  mode: "history",
 
-  routes: [{
-    path: '/',
-    component: () => import( /* webpackChunkName: "MainLayout" */ './layout/VMain.vue'),
-    children: [
-      {
-        path: '/',
-        name: 'Home',
-        component: () => import( /* webpackChunkName: "Home" */ './views/Home.vue')
-      },
-      {
-        path: 'about',
-        name: 'About',
-        component: () => import( /* webpackChunkName: "about" */ './views/About.vue')
-      },
-      {
-        path: 'band',
-        name: 'Band',
-        component: () => import( /* webpackChunkName: "band" */ './views/Band.vue')
-      },
-      {
-        path: 'categories',
-        name: 'Categories',
-        component: () => import( /* webpackChunkName: "categories" */ './views/Categories.vue')
-      },
-      {
-        path: 'studio',
-        name: 'Studio',
-        component: () => import( /* webpackChunkName: "studio" */ './views/Studio.vue'),
+  routes: [
+    {
+      path: "/",
+      component: () =>
+        import(/* webpackChunkName: "MainLayout" */ "./layout/VMain.vue"),
+      children: [
+        {
+          path: "/",
+          name: "Home",
+          component: () =>
+            import(/* webpackChunkName: "Home" */ "./views/Home.vue")
+        },
+        {
+          path: "about",
+          name: "About",
+          component: () =>
+            import(/* webpackChunkName: "about" */ "./views/About.vue")
+        },
+        {
+          path: "band",
+          name: "Band",
+          component: () =>
+            import(/* webpackChunkName: "band" */ "./views/Band.vue")
+        },
+        {
+          path: "categories",
+          name: "Categories",
+          component: () =>
+            import(
+              /* webpackChunkName: "categories" */ "./views/Categories.vue"
+            )
+        },
+        {
+          path: "studio",
+          name: "Studio",
+          component: () =>
+            import(/* webpackChunkName: "studio" */ "./views/Studio.vue")
+        },
+        {
+          path: "stream",
+          name: "Stream",
+          component: () =>
+            import(/* webpackChunkName: "stream" */ "./views/Stream.vue")
+        }
+      ]
+    },
+
+    /*auth required*/
+    {
+      path: "/account",
+      name: "Account",
+      component: () =>
+        import(/* webpackChunkName: "Account" */ "./views/Account.vue"),
+      meta: {
+        requiresAuth: true,
+        method: "POST"
       }
-    ]
-  },
-
-  /*auth required*/
-  {
-    path: '/account',
-    name: 'Account',
-    component: () => import( /* webpackChunkName: "Account" */ './views/Account.vue'),
-    meta: {
-      requiresAuth: true,
-      method: 'POST'
     }
-  }
   ]
 });
 

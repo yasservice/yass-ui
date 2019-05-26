@@ -51,6 +51,16 @@
     background: linear-gradient(158.58deg, #0097f2 -15.81%, #00acff 87.01%);
     box-shadow: 0px 0px 5px #00a0f8;
   }
+
+  &--subscribe {
+    background: linear-gradient(157deg, #9573F0 -15.81%, #622FEC 87.01%);
+    box-shadow: 0px 0px 5px #5F2FE1;
+  }
+
+  &--subscribed {
+    background: #020B19;
+    box-shadow: inset 0px 0px 5px #000000;
+  }
 }
 
 .btn-auth {
@@ -79,4 +89,25 @@
   align-items: center;
 
   color: $icon;
+}
+
+.btn-share {
+  color: $white;
+  text-align: right;
+  text-transform: capitalize;
+
+  &__icon {
+    margin-left: 5px;
+  }
+
+  transform: scale(1);
+
+  transition: 0.2s linear opacity;
+
+  will-change: opacity;
+
+  &:hover,
+  &:focus {
+    opacity: 0.5;
+  }
 }
