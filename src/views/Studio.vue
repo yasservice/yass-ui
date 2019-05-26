@@ -2,12 +2,12 @@
   <div>
     <default-header :title="defaultHeader.title" :breadcrumbs="defaultHeader.breadcrumbs"></default-header>
 
-    <!-- <live-video></live-video> -->
+    <live-video></live-video>
     <!-- <chat></chat> -->
     <!-- <stream-action></stream-action> -->
     <!-- <stream-status></stream-status> -->
     <!-- <stream-state></stream-state> -->
-    <stream-bitrate></stream-bitrate>
+    <!-- <stream-bitrate></stream-bitrate> -->
   </div>
 </template>
 <script>

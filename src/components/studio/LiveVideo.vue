@@ -1,7 +1,7 @@
 <template>
   <div class="live-video">
     <div>
-      <img :src="require(`@/assets/stream.png`)" alt="stream video">
+      <video-player :options="videoOptions"></video-player>
     </div>
 
     <el-form ref="studioForm" :model="studioForm" :rules="rules">
@@ -51,12 +51,14 @@
 </template>
 <script>
 import { faRedo } from "@fortawesome/free-solid-svg-icons";
+import VideoPlayer from "../video/VideoPlayer";
 
 export default {
   name: "LiveVideo",
 
   components: {
-    faRedo
+    faRedo,
+    VideoPlayer
   },
 
   data() {
@@ -72,9 +74,14 @@ export default {
           {
             min: 3,
             required: true,
-            message: "title must containt more than 2 characters",
+            message: "title must containt more than 2 characters"
           },
-           { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' }
+          {
+            min: 3,
+            max: 5,
+            message: "Length should be 3 to 5",
+            trigger: "blur"
+          }
         ],
         liveNotification: [
           {
@@ -99,6 +106,19 @@ export default {
         ]
       },
 
+      videoOptions: {
+        // autoplay: true,
+        controls: true,
+        poster: require(`@/assets/stream.png`),
+
+        sources: [
+          {
+            src: "https://vjs.zencdn.net/v/oceans.mp4",
+            type: "video/mp4"
+          }
+        ]
+      },
+
       // icon
       faRedo,
 
@@ -110,13 +130,12 @@ export default {
     async submitForm(formName) {
       this.isFormSubmited = true;
       await setTimeout(() => (this.isFormSubmited = false), 1500);
-      
-      this.$refs[formName].validate(valid => {
-          if (!valid) return;
 
-          console.log( this.$refs[formName]);
-        });
-    
+      this.$refs[formName].validate(valid => {
+        if (!valid) return;
+
+        console.log(this.$refs[formName]);
+      });
     }
   }
 };
