@@ -11,13 +11,13 @@
     <el-input v-model="searchAction" placeholder="Type anything" suffix-icon="el-icon-search"></el-input>
 
     <div class="actions__body action">
-      <el-scrollbar
+      <!-- <el-scrollbar
         wrap-class="actions__content-scroll"
         wrap-style
         view-style=";"
         view-class="actions__content-view-box"
         :native="false"
-      >
+      > -->
         <div class="action__item" v-for="(item, index) in actionsData" :key="'action-item' + index">
           <span class="action__user-name">{{ item.userName }}</span>
           <span class="action__info">{{ item.info }}</span>
@@ -26,12 +26,12 @@
             <span class="action__message-text">{{ item.message }}</span>
           </div>
         </div>
-      </el-scrollbar>
+      <!-- </el-scrollbar> -->
     </div>
   </section>
 </template>
 <script>
-import OpenNewWindow from "../elements/OpenNewWindow";
+import OpenNewWindow from "@/components/elements/OpenNewWindow";
 
 export default {
   name: "StreamAction",
@@ -68,15 +68,16 @@ export default {
 
 <style lang="scss">
 .actions {
+  height: 100%;
   &__body {
     margin-top: 10px;
-    height: 300px;
-    overflow: hidden;
+    // height: 300px;
+    // overflow: hidden;
   }
 
   &__content {
     &-scroll {
-      height: 300px;
+      // height: 300px;
     }
 
     &-view-box {

@@ -6,7 +6,7 @@
   </section>
 </template>
 <script>
-import OpenNewWindow from "../elements/OpenNewWindow";
+import OpenNewWindow from "@/components/elements/OpenNewWindow";
 import Chartist from "chartist";
 
 export default {

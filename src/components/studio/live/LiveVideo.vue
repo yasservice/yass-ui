@@ -4,14 +4,14 @@
       <video-player :options="videoOptions"></video-player>
     </div>
 
-    <el-form ref="studioForm" :model="studioForm" :rules="rules">
-      <el-row :gutter="30">
-        <el-col :span="12">
+    <el-form ref="studioForm" :model="studioForm" :rules="rules" class="live-video__form">
+      <el-row :gutter="20">
+        <el-col :lg="12">
           <el-form-item label="Title">
             <el-input v-model="studioForm.title" placeholder="stream title"></el-input>
           </el-form-item>
         </el-col>
-        <el-col :span="12">
+        <el-col :lg="12" :xl="6">
           <el-form-item label="Category">
             <el-input
               v-model="studioForm.category"
@@ -20,13 +20,8 @@
             ></el-input>
           </el-form-item>
         </el-col>
-        <el-col :span="12">
-          <el-form-item label="Live Notification">
-            <el-input v-model="studioForm.liveNotification" placeholder="notification text"></el-input>
-          </el-form-item>
-        </el-col>
-        <el-col :span="8">
-          <el-form-item label="Language">
+        <el-col :lg="12" :xl="6">
+          <el-form-item label="Category">
             <el-input
               v-model="studioForm.language"
               placeholder="English"
@@ -34,9 +29,21 @@
             ></el-input>
           </el-form-item>
         </el-col>
-        <el-col :span="3">
+        <el-col :lg="12">
+          <el-form-item label="Live Notification">
+            <el-input v-model="studioForm.liveNotification" placeholder="notification text"></el-input>
+          </el-form-item>
+        </el-col>
+        <el-col :lg="12" :xl="6">
+          <el-form-item label="Stream Record">
+          </el-form-item>
+           <div class="input input-checkbox">
+              <el-checkbox v-model="studioForm.record">Save record</el-checkbox>
+            </div>
+        </el-col>
+        <el-col :lg="12" :xl="6">
           <button
-            class="live-video__update-btn btn-reset btn-primary btn-primary--primary"
+            class="live-video__update-btn btn-reset btn-primary btn-primary--primary btn__fluid"
             @click.prevent="submitForm('studioForm')"
           >
             <span class="live-video__update-btn-icon btn-primary__icon">
@@ -51,7 +58,7 @@
 </template>
 <script>
 import { faRedo } from "@fortawesome/free-solid-svg-icons";
-import VideoPlayer from "../video/VideoPlayer";
+import VideoPlayer from "@/components/video/VideoPlayer";
 
 export default {
   name: "LiveVideo",
@@ -67,7 +74,8 @@ export default {
         title: "",
         liveNotification: "",
         category: "",
-        language: ""
+        language: "",
+        record: true
       },
       rules: {
         title: [
@@ -147,6 +155,21 @@ export default {
     margin-top: 43px;
 
     &-icon {
+    }
+  }
+
+  &__form {
+
+  }
+
+  .input-checkbox {
+    margin-top: -22px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    
+    span {
+      font-weight: normal;
     }
   }
 }

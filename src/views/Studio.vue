@@ -2,34 +2,25 @@
   <div>
     <default-header :title="defaultHeader.title" :breadcrumbs="defaultHeader.breadcrumbs"></default-header>
 
-    <live-video></live-video>
-    <!-- <chat></chat> -->
-    <!-- <stream-action></stream-action> -->
-    <!-- <stream-status></stream-status> -->
-    <!-- <stream-state></stream-state> -->
-    <!-- <stream-bitrate></stream-bitrate> -->
+    <el-tabs v-model="activeTabe" @tab-click="tabChange">
+      <el-tab-pane label="Live" name="live">
+        <studio-live></studio-live>
+      </el-tab-pane>
+      <el-tab-pane label="Analytics" name="analytics">Analytics</el-tab-pane>
+      <el-tab-pane label="Videos" name="videos">Videos</el-tab-pane>
+    </el-tabs>
   </div>
 </template>
 <script>
 import DefaultHeader from "@/components/elements/DefaultHeader";
-import LiveVideo from "@/components/studio/LiveVideo";
-import Chat from "@/components/chat/Chat";
-import StreamAction from "@/components/studio/StreamAction";
-import StreamStatus from "@/components/studio/StreamStatus";
-import StreamState from "@/components/studio/StreamState";
-import StreamBitrate from "@/components/studio/StreamBitrate";
+import StudioLive from "@/components/studio/StudioLive";
 
 export default {
   name: "Studio",
 
   components: {
     DefaultHeader,
-    LiveVideo,
-    Chat,
-    StreamAction,
-    StreamStatus,
-    StreamState,
-    StreamBitrate
+    StudioLive
   },
 
   data() {
@@ -43,8 +34,14 @@ export default {
         ],
 
         title: "Studio"
-      }
+      },
+
+      activeTabe: "live"
     };
+  },
+
+  methods: {
+    tabChange(tab, event) {}
   }
 };
 </script>

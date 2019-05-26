@@ -20,7 +20,7 @@
   </section>
 </template>
 <script>
-import OpenNewWindow from "../elements/OpenNewWindow";
+import OpenNewWindow from "@/components/elements/OpenNewWindow";
 import {
   faTimes,
   faCheck,

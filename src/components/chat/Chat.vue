@@ -4,23 +4,23 @@
 
     <div class="chat__body">
       <div class="chat__content">
-        <el-scrollbar
+        <!-- <el-scrollbar
           wrap-class="chat__content-scroll"
           wrap-style=""
           view-style=";"
           view-class="chat__content-view-box"
           :native="false"
+        >-->
+        <div
+          class="chat__message"
+          v-for="(item, index) in chat"
+          :key="'chat-message' + index"
+          :class="{ 'is-for-steamer': item.isForStreamer }"
         >
-          <div
-            class="chat__message"
-            v-for="(item, index) in chat"
-            :key="'chat-message' + index"
-            :class="{ 'is-for-steamer': item.isForStreamer }"
-          >
-            <span class="chat__author">{{ item.author }}: </span>
-            <span class="chat__text">{{ item.message }}</span>
-          </div>
-        </el-scrollbar>
+          <span class="chat__author">{{ item.author }}:</span>
+          <span class="chat__text">{{ item.message }}</span>
+        </div>
+        <!-- </el-scrollbar> -->
       </div>
 
       <div class="chat__input-body">
@@ -107,9 +107,10 @@ export default {
 
 <style lang="scss">
 .chat {
-   
+  height: 100%;
 
   &__body {
+    height: calc(100% - 35px);
     width: 100%;
     min-height: 200px;
     max-height: 500px;
@@ -120,11 +121,11 @@ export default {
   }
 
   &__content {
-    height: 300px;
+    height: 100%;
     overflow: hidden;
 
     &-scroll {
-      height: 300px;
+      height: 300%;
     }
 
     &-view-box {

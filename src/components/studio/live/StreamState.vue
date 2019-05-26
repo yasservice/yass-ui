@@ -28,7 +28,7 @@
   </section>
 </template>
 <script>
-import OpenNewWindow from "../elements/OpenNewWindow";
+import OpenNewWindow from "@/components/elements/OpenNewWindow";
 import { faUser, faHeart, faClock } from "@fortawesome/free-solid-svg-icons";
 
 export default {
@@ -78,6 +78,10 @@ export default {
       padding-left: 10px;
       color: $white;
     }
+  }
+
+  &__item {
+    margin: 0;
   }
 
   &__type {
