@@ -22,7 +22,7 @@ export default {
 
       this.$store.dispatch('pageScrolled', isScrolled)
         .then(() => {
-          //console.log('success');
+          // console.log('success');
         })
         .catch((e) => {
           console.error(e);
@@ -38,7 +38,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import "~element-ui/packages/theme-chalk/src/index";
 #app {
   
 }
