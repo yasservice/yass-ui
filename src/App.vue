@@ -22,7 +22,7 @@ export default {
 
       this.$store.dispatch('pageScrolled', isScrolled)
         .then(() => {
-          //console.log('success');
+          // console.log('success');
         })
         .catch((e) => {
           console.error(e);

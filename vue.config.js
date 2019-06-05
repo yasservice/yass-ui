@@ -3,8 +3,12 @@ module.exports = {
   
 
    // proxy API requests during development
+  
+
   devServer: {
-    proxy: process.env.VUE_APP_API_HOST,
+    proxy:{"/graphql": 
+      {target: "http://localhost:9000", secure: false}
+    },
     watchOptions: {
       aggregateTimeout: 300,
       poll: 1000
