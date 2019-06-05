@@ -6,7 +6,10 @@ import VueApollo from 'vue-apollo';
 Vue.use(VueApollo);
 
 export const defaultClient = new ApolloClient( {
-  uri: 'http://127.0.0.1:8000/graphql',
+  uri: process.env.VUE_APP_API_HOST,
+  fetchOptions: {
+    // mode: 'no-cors',
+  }
 });
 
 export const apolloProvider = new VueApollo({ defaultClient });

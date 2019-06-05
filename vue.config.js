@@ -11,9 +11,9 @@ module.exports = {
     },
   },
 
-   // proxy API requests to Valet during development
+   // proxy API requests during development
   devServer: {
-    proxy: 'http://127.0.0.1:8000',
+    proxy: process.env.VUE_APP_API_HOST,
     watchOptions: {
       poll: true
     }
