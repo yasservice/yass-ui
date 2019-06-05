@@ -38,7 +38,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import "~element-ui/packages/theme-chalk/src/index";
 #app {
   
 }

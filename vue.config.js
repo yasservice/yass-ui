@@ -1,23 +1,17 @@
+
 module.exports = {
-  css: {
-    loaderOptions: {
-      sass: {
-        data: `
-          @import "~@/scss/_mixins.scss";
-          @import "~@/scss/_fonts.scss";
-          @import "~@/scss/app.scss";
-          `,
-      }
-    },
-  },
+  
 
    // proxy API requests during development
   devServer: {
     proxy: process.env.VUE_APP_API_HOST,
     watchOptions: {
-      poll: true
+      aggregateTimeout: 300,
+      poll: 1000
     }
   },
+
+  parallel: true,
 
   // output built static files to Laravel's public dir.
   // note the "build" script in package.json needs to be modified as well.
@@ -32,6 +26,19 @@ module.exports = {
   configureWebpack: {
    devtool: 'source-map'
  },
+
+  css: {
+    loaderOptions: {
+      sass: {
+        data: `
+          @import "~@/scss/_mixins.scss";
+          @import "~@/scss/_fonts.scss";
+          @import "~@/scss/app.scss";
+          `,
+        outputStyle: "expanded",
+      }
+    },
+  },
 
   pluginOptions: {
     i18n: {

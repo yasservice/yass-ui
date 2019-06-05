@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "vue-cli-service serve",
-    "build": "rm -rf ../public/{js,css,img} && vue-cli-service build --no-clean",
+    "dev": "vue-cli-service serve --verbose --report",
+    "build": "rm -rf ../public/{js,img} && vue-cli-service build --no-clean",
     "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'"
   },
   "dependencies": {
@@ -26,14 +26,24 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.7.0",
     "@vue/cli-service": "^3.7.0",
+    "cache-loader": "^3.0.1",
+    "css-loader": "^2.1.1",
+    "fast-sass-loader": "^1.4.7",
     "graphql-tag": "^2.9.0",
+    "mini-css-extract-plugin": "^0.7.0",
     "node-sass": "^4.12.0",
     "sass-loader": "^7.1.0",
+    "sass-resources-loader": "^2.0.1",
+    "style-loader": "^0.23.1",
     "vue-cli-plugin-apollo": "^0.20.0",
     "vue-cli-plugin-element": "^1.0.1",
     "vue-cli-plugin-i18n": "^0.6.0",
+    "vue-loader": "^15.7.0",
+    "vue-style-loader": "^4.1.2",
     "vue-svg-loader": "^0.12.0",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.33.0",
+    "webpack-cli": "^3.3.2"
   },
   "postcss": {
     "plugins": {
