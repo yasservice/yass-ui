@@ -24,7 +24,7 @@
       <button slot="reference" class="user-wrap btn-reset" @click="isUserClicked = !isUserClicked">
         <div class="user-avatar"></div>
 
-        <div class="user-login">ePadamans</div>
+        <div class="user-login">{{ user.name ? user.name : user.email }}</div>
 
         <span class="user-popover-icon">
           <i class="el-icon-arrow-down icon-default"
@@ -50,15 +50,15 @@ export default {
     return {
       list: [
         {
-          link: "/",
-          text: "Channel"
+          link: "/studio",
+          text: "Studio"
         },
         {
           text: "language",
         },
         {
           text: "Settings",
-          link: "/account"
+          link: "/setting"
         },
         {
           link: "/",
@@ -68,6 +68,13 @@ export default {
 
       isUserClicked: false,
     };
+  },
+
+  computed: {
+    user() {
+      console.log(this.$store.state.user.user);
+      return this.$store.state.user.user;
+    }
   }
 };
 </script>

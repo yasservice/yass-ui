@@ -149,6 +149,7 @@
 
 <script>
 import { AUTH_REQUEST } from "@/store/modules/auth/index";
+import { error } from "util";
 
 export default {
   name: "UserAuthPopup",
@@ -194,9 +195,9 @@ export default {
 
     const checkName = (rule, value, callback) => {
       if (value === "") {
-        callback(new Error("Please enter name"))
+        callback(new Error("Please enter name"));
       } else if (value.length <= 2) {
-        callback(new Error("Name must contain at least 3 character"))
+        callback(new Error("Name must contain at least 3 character"));
       } else {
         callback();
       }
@@ -208,7 +209,7 @@ export default {
         checkPass: "",
         age: "",
         email: "",
-        name: "",
+        name: ""
       },
 
       authRuls: {
@@ -229,7 +230,7 @@ export default {
             trigger: ["change", "change"]
           }
         ],
-        name: [{required: true, validator: checkName, trigger: "change" }]
+        name: [{ required: true, validator: checkName, trigger: "change" }]
       },
 
       whichFormShow: "signin",
@@ -355,7 +356,6 @@ export default {
             return;
           }
         }
-        
       });
     },
 
@@ -386,20 +386,23 @@ export default {
     signIn() {
       const { pass: password, email } = this.authForm;
 
-      console.log("singin called");
+      this.$store
+        .dispatch("user/getUser", { name, email, password })
+        .then(res => {
+          this.$message({
+            message: "Successfull login",
+            type: "success"
+          });
 
-      this.close("userAuth");
-      this.resetForm("authForm");
-
-      // this.$store.dispatch(AUTH_REQUEST, {email, password})
-      //   .then((res) => {
-      //     console.log(res);
-      //   })
-      //   .cath((e) => {
-      //     console.error(e);
-      //   })
-
-      console.log(password, email);
+          this.close("userAuth");
+          this.resetForm("authForm");
+        })
+        .catch(error => {
+          this.$message({
+            message: error,
+            type: "error"
+          });
+        });
     },
 
     /**

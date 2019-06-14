@@ -8,9 +8,9 @@
 
     <user-badge class="main-nav__alert"></user-badge>  
 
-    <!-- <user-popover class="main-nav__userpopover"></user-popover> -->
+    <user-popover class="main-nav__userpopover" v-if="user"></user-popover>
 
-    <auth-user></auth-user>
+    <auth-user v-else></auth-user>
   </nav>
 </template>
 <script>
@@ -42,6 +42,10 @@ export default {
   computed: {
     isPageScrolled() {
       return this.$store.state.isPageScrolled;
+    },
+
+    user() {
+      return this.$store.state.user.user;
     }
   }
 };

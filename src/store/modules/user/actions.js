@@ -14,7 +14,7 @@ export default {
         variables: payload
       })
       .then(({ data }) => {
-        commit('setUserData', data);
+        commit('setUserData', data.user);
       })
       .catch(err => {
         console.error(err);
