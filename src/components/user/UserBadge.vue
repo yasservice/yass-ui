@@ -6,6 +6,8 @@
 
         <span class="user-badge__count">
         </span>
+
+        <span class="hide-element">user badge</span>
     </button>
 </template>
 

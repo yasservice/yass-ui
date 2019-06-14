@@ -7,6 +7,7 @@
         v-show="!toggleMenu"
       >
         <font-awesome-icon :icon="faBars" aria-label="true" v-show="!toggleMenu"></font-awesome-icon>
+        <span class="hide-element">toggle menu button</span>
       </button>
 
       <div v-show="toggleMenu" class="main-nav__left-close-menu">

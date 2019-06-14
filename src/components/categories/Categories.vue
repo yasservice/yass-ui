@@ -3,7 +3,7 @@
     <div class="stream-categories__title-body">
       <h2 class="stream-categories__title">CURRENT STREAMING CATEGORIES</h2>
 
-      <router-link :to="{path: 'categories'}" class="link-primary">
+      <router-link :to="{path: 'categories'}" class="stream-categories__link link-primary">
         <span>see all</span>
 
         <span class="link-primary__icon">
@@ -126,12 +126,16 @@ export default {
 
     font-size: 16px;
     line-height: 1.5;
-    color: $info;
+    color: $white;
 
     &-body {
       display: flex;
       align-items: center;
     }
+  }
+
+  &__link {
+    color: $primary--light;
   }
 
   &__row {
