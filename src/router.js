@@ -80,6 +80,12 @@ const router = new Router({
           name: "Stream",
           component: () =>
             import(/* webpackChunkName: "stream" */ "./views/Stream.vue")
+        },
+        {
+          path: "setting",
+          name: "Setting",
+          component: () =>
+            import(/* webpackChunkName: "stream" */ "./views/Setting.vue")
         }
       ]
     },

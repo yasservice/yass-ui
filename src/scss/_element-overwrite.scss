@@ -34,6 +34,16 @@ body {
     }
   }
 
+  .el-textarea__inner {
+    background: $bg-darkest;
+    color: $white;
+    border-color: $bg-darkest;
+
+    &::placeholder {
+      color: $info--light;
+    }
+  }
+
   // /* buttons
   // -------------------------- */
   // .el-button {
